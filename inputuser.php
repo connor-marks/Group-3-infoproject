@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<!-- Form to enter club teams -->
+<!-- Form to enter new users -->
 <div class="row">
 <div class="col-xs-12">
 
@@ -116,6 +116,11 @@ if (isset($_POST['submit'])) {
 <div class="form-group">
 	<label for="password2">Please enter password again</label>
 	<input type="password" class="form-control" name="password2"/>
+</div>
+
+<div class="form-group">
+	<label for="name">Please enter first name</label>
+	<input type="name" class="form-control" name="name"/>
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
