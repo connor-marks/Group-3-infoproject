@@ -4,10 +4,10 @@
 // Server information.
 $Proto = "http://";
 $Host = $_SERVER['SERVER_NAME'];
-$Base = "/~cnmarks/song/";
+$Base = "";
 
 // Title to use in browser title bar.
-$Title = "Songs";
+$Title = "Wage Theft Helper";
 $Name = "Connor Marks";
 $Email = "cnmarks@uiowa.edu";
 
