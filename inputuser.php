@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 	
 	// check to make sure we have an email
 	if (!$email) {
-		punt("Please enter a name");
+		punt("Please enter a email");
 	}
 
 	if (!$password1) {
