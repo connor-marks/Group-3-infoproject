@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Input user - " . $Title; ?>
+		<?php echo "Create Account - " . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
@@ -29,7 +29,7 @@
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Input user - " . $Title; ?></h1>
+	<h1><?php echo "Create Account - " . $Title; ?></h1>
 </div>
 </div>
 </div>
@@ -47,6 +47,7 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password1 = $_POST['password1'];
 	$password2 = $_POST['password2'];
+	$name = $_POST['name'];
 	
 	// check to make sure we have an email
 	if (!$email) {
@@ -63,6 +64,10 @@ if (isset($_POST['submit'])) {
 	
 	if ($password1 != $password2) {
 		punt("Your two passwords are not the same");
+	}
+	
+	if (!$name) {
+		punt("Please enter a name");
 	}
 
 	// check if email already in database
