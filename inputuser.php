@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 	$db = connectDB($DBHost,$DBUser,$DBPasswd,$DBName);
 	
 	// set up my query
-	$query = "SELECT email FROM Users WHERE email='$email';";
+	$query = "SELECT email FROM infoproj WHERE email='$email';";
 	
 	// run the query
 	$result = queryDB($query, $db);
