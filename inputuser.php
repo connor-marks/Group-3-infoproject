@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 	$db = connectDB($DBHost,$DBUser,$DBPasswd,$DBName);
 	
 	// set up my query
-	$query = "SELECT email FROM infoproj WHERE email='$email';";
+	$query = "SELECT email FROM Employee WHERE email='$email';";
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
 	$hashedPass = crypt($password1, getSalt());
 	
 	// set up my query
-	$query = "INSERT INTO Users(email, hashedPass) VALUES ('$email', '$hashedPass');";
+	$query = "INSERT INTO Employee(email, hashedPass) VALUES ('$email', '$hashedPass');";
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -149,7 +149,7 @@ if (isset($_POST['submit'])) {
 	$db = connectDB($DBHost,$DBUser,$DBPasswd,$DBName);
 	
 	// set up my query
-	$query = "SELECT email FROM Users ORDER BY email;";
+	$query = "SELECT email FROM Employee ORDER BY email;";
 	
 	// run the query
 	$result = queryDB($query, $db);
