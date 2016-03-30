@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 			// Password is correct
 			if (session_start()) {
 				$_SESSION['email'] = $email;
-				header('Location: inputartist.php');
+				header('Location: inputuser.php');
 			} else {
 				punt("Unable to create session");
 			}
