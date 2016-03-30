@@ -1,0 +1,28 @@
+.logo {
+    font: sans-serif;
+    color: navy;
+    font-size: 2em;
+    
+    padding: 2% 0  0;
+}
+
+.menu {
+    padding: 5% 5% 2% 5%;
+}
+
+.menu-item a {
+    font: sans-serif;
+    text-decoration: none !important;
+    padding: 10px;
+}
+
+.menu-item a:hover {
+    color: navy;
+    border: 1px solid lightgrey;
+    background-color: lightgrey;
+    border-radius: 10%;
+}
+
+.log-in {
+    padding: 0 5% 0 5%;
+}
