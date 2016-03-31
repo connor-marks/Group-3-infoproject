@@ -37,13 +37,15 @@ CREATE TABLE Wage(
 CREATE TABLE Hours(
 	hourlyPay INT NOT NULL,
 	hoursWorked INT NOT NULL
+	startDate DATE NOT NULL,
+	endDate DATE NOT NULL
 );
 
 CREATE TABLE Job(
 	jobID INT NOT NULL AUTO_INCREMENT,
-	jobTitile VARCHAR(100) NOT NULL,
+	jobTitle VARCHAR(100) NOT NULL,
 	PRIMARY KEY(jobID),
-	FOREIGN KEY(email),
+	FOREIGN KEY(email), REFERENCES Employee(email),
 	FOREIGN KEY(companyID) REFERENCES Company(companyID),
 	FOREIGN KEY(wageID) REFERENCES Wage(wageID)
 );
