@@ -15,7 +15,7 @@ CREATE TABLE Employee (
 	job VARCHAR(100) NOT NULL,
 	address VARCHAR(100) NULL,
 	PRIMARY KEY (email),
-	FOREIGN KEY (job)
+	FOREIGN KEY (jobID) REFERENCES Job(jobID)
 );
 
 CREATE TABLE Company(
@@ -31,7 +31,7 @@ CREATE TABLE Wage(
 	startDate DATE NOT NULL,
 	endDate DATE NOT NULL,
 	payDate DATE NOT NULL,
-	PRIMARY KEY(wageID)
+	PRIMARY KEY(wageID) 
 );
 
 CREATE TABLE Hours(
@@ -44,8 +44,8 @@ CREATE TABLE Job(
 	jobTitile VARCHAR(100) NOT NULL,
 	PRIMARY KEY(jobID),
 	FOREIGN KEY(email),
-	FOREIGN KEY(companyID),
-	FOREIGN KEY(wageID)
+	FOREIGN KEY(companyID) REFERENCES Company(companyID),
+	FOREIGN KEY(wageID) REFERENCES Wage(wageID)
 );
 
 CREATE TABLE NonProfit(
