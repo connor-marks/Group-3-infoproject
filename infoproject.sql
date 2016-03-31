@@ -10,7 +10,7 @@ DROP TABLE IF EXIST NonProfitAccount;
 CREATE TABLE Employee (
 	email VARCHAR(45) UNIQUE NOT NULL,
 	name VARCHAR(45) NOT NULL,
-	password VARCHAR(12) NOT NULL,
+	password VARCHAR(30) NOT NULL,
 	phoneNumber INT NOT NULL,
 	job VARCHAR(100) NOT NULL,
 	address VARCHAR(100) NULL,
@@ -57,6 +57,6 @@ CREATE TABLE NonProfit(
 
 CREATE TABLE NonProfitAccount(
 	userID INT NOT NULL AUTO_INCREMENT,
-	nonProfitPassword VARCHAR(12) NOT NULL,
+	nonProfitPassword VARCHAR(30) NOT NULL,
 	PRIMARY KEY (userID)
 );
