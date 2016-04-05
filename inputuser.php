@@ -124,8 +124,28 @@ if (isset($_POST['submit'])) {
 </div>
 
 <div class="form-group">
-	<label for="name">Please enter first name</label>
+	<label for="name">Please enter full name</label>
 	<input type="name" class="form-control" name="name"/>
+</div>
+
+<div class="form-group">
+	<label for="phoneNumber">Please enter your phone number</label>
+	<input type="phoneNumber" class="form-control" name="phoneNumber"/>
+</div>
+
+<div class="form-group">
+	<label for="address">Please enter your home address</label>
+	<input type="address" class="form-control" name="address"/>
+</div>
+
+<div class="form-group">
+	<label for="Job">Please enter your Job title</label>
+	<input type="job" class="form-control" name="job"/>
+</div>
+
+div class="form-group">
+	<label for="Company">Please enter your Company Name</label>
+	<input type="Company" class="form-control" name="Company"/>
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
@@ -139,7 +159,7 @@ if (isset($_POST['submit'])) {
 <!-- Titles for table -->
 <thead>
 <tr>
-	<th>Email</th>
+
 </tr>
 </thead>
 
