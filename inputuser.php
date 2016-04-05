@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Create Account - " . $Title; ?>
+		<?php echo "Create Account: " . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
