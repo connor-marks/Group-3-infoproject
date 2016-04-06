@@ -4,7 +4,7 @@
 // Server information.
 $Proto = "http://";
 $Host = $_SERVER['SERVER_NAME'];
-$Base = "";
+$Base = "/~cnmarks/InformaticsProject/";
 
 // Title to use in browser title bar.
 $Title = "Wage Theft Helper";
