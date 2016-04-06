@@ -7,7 +7,7 @@ $Host = $_SERVER['SERVER_NAME'];
 $Base = "/~cnmarks/InformaticsProject/";
 
 // Title to use in browser title bar.
-$Title = "Wage Theft Helper";
+//$Title = "Wage Theft Helper";
 $Name = "Connor Marks";
 $Email = "cnmarks@uiowa.edu";
 
