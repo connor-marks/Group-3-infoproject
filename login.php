@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 	$db = connectDB($DBHost,$DBUser,$DBPasswd,$DBName);
 	
 	// set up my query
-	$query = "SELECT email, hashedPass FROM Users WHERE email='$email';";
+	$query = "SELECT email, hashedPass FROM Employees WHERE email='$email';";
 	
 	// run the query
 	$result = queryDB($query, $db);
