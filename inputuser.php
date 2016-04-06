@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Create Account: " . $Title; ?>
+		<?php echo "Sign up " . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
@@ -29,7 +29,7 @@
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Create Account - " . $Title; ?></h1>
+	<h1><?php echo "Create Account: " . $Title; ?></h1>
 </div>
 </div>
 </div>
