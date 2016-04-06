@@ -51,7 +51,7 @@ CREATE TABLE Job(
 	PRIMARY KEY(jobID),
 	FOREIGN KEY(email), REFERENCES Employee(email),
 	FOREIGN KEY(companyID) REFERENCES Company(companyID),
-	FOREIGN KEY(wageID) REFERENCES Wage(wageID)
+	
 );
 
 CREATE TABLE NonProfit(
