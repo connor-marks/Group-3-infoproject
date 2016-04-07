@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
 	<title>
-		<?php echo "Login - " . $Title; ?>
+		<?php echo "Login" . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
