@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Login - " . $Title; ?></h1>
+	<h1><?php echo "Login" . $Title; ?></h1>
 </div>
 </div>
 </div>
