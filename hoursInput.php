@@ -104,9 +104,22 @@ if (isset($_POST['submit'])) {
 <div class="col-xs-12">
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
 <div class="form-group">
-	<label for="email">Email</label>
+	<label for="email"></label>
 	<input type="email" class="form-control" name="email"/>
+</div>
+<!-- drop down menu for hours -->
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+    <li role="presentation"><a role="menuitem" href="#">HTML</a></li>
+    <li role="presentation"><a role="menuitem" href="#">CSS</a></li>
+    <li role="presentation"><a role="menuitem" href="#">JavaScript</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" href="#">About Us</a></li>
+  </ul>
 </div>
 
 <div class="form-group">
@@ -122,26 +135,6 @@ if (isset($_POST['submit'])) {
 <div class="form-group">
 	<label for="name">Please enter full name</label>
 	<input type="name" class="form-control" name="name"/>
-</div>
-
-<div class="form-group">
-	<label for="phoneNumber">Please enter your phone number</label>
-	<input type="phoneNumber" class="form-control" name="phoneNumber"/>
-</div>
-
-<div class="form-group">
-	<label for="address">Please enter your home address</label>
-	<input type="address" class="form-control" name="address"/>
-</div>
-
-<div class="form-group">
-	<label for="Job">Please enter your Job title</label>
-	<input type="job" class="form-control" name="job"/>
-</div>
-
-<div class="form-group">
-	<label for="Company">Please enter your Company Name</label>
-	<input type="Company" class="form-control" name="Company"/>
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
