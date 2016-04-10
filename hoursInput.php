@@ -29,7 +29,7 @@
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Input your hours: " . $Title; ?></h1>
+	<h1><?php echo "Add Hours " . $Title; ?></h1>
 </div>
 </div>
 </div>
@@ -49,22 +49,18 @@ if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
 	
 	// check to make sure we have an email
-	if (!$email) {
-		punt("Please enter a email");
+	if (!$Job) {
+		punt("Please enter a Job");
 	}
-	if (!$password1) {
-		punt("Please enter a password");
+	if (!$Startdate) {
+		punt("Please enter a beginning date");
 	}
-	if (!$password2) {
-		punt("Please enter your password twice");
-	}
-	
-	if ($password1 != $password2) {
-		punt("Your two passwords are not the same");
+	if (!$Enddate) {
+		punt("Please enter a end date");
 	}
 	
-	if (!$name) {
-		punt("Please enter a name");
+	if (!$hours) {
+		punt("Please enter your hours");
 	}
 	// check if email already in database
 		// connect to database
@@ -76,13 +72,8 @@ if (isset($_POST['submit'])) {
 	// run the query
 	$result = queryDB($query, $db);
 	
-	// check if the email is there
-	if (nTuples($result) > 0) {
-		punt("The email address $email is already in the database");
 	}
 	
-	// generate hashed password
-	$hashedPass = crypt($password1, getSalt());
 	
 	// set up my query
 	$query = "INSERT INTO Employee(email, hashedPass) VALUES ('$email', '$hashedPass');";
@@ -90,10 +81,10 @@ if (isset($_POST['submit'])) {
 	// run the query
 	$result = queryDB($query, $db);
 	
-	// tell users that we added the player to the database
+	// tell users that we added the hours to the database
 	echo "<div class='panel panel-default'>\n";
 	echo "\t<div class='panel-body'>\n";
-    echo "\t\tThe user " . $email . " was added to the database\n";
+    echo "\t\tThe user " . $hours . " was added to the database\n";
 	echo "</div></div>\n";
 	
 }
@@ -163,14 +154,6 @@ if (isset($_POST['submit'])) {
 </script>
 </div>
 
-<div class="form-group">
-	<label for="password2">Please enter password again</label>
-	<input type="password" class="form-control" name="password2"/>
-</div>
-
-<div class="form-group">
-	<label for="name">Please enter full name</label>
-	<input type="name" class="form-control" name="name"/>
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
