@@ -106,8 +106,8 @@ if (isset($_POST['submit'])) {
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 <div class="form-group">
-	<label for="email"></label>
-	<input type="email" class="form-control" name="email"/>
+	<label for="Job"></label>
+	<input type="Job" class="form-control" name="Job"/>
 </div>
 <!-- drop down menu for hours -->
 <div class="dropdown">
@@ -123,8 +123,44 @@ if (isset($_POST['submit'])) {
 </div>
 
 <div class="form-group">
-	<label for="password1">Password</label>
-	<input type="password" class="form-control" name="password1"/>
+	<label for="Hours">Date</label>
+	<input type="Date" class="form-control" name="date"/>
+	<div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
 </div>
 
 <div class="form-group">
