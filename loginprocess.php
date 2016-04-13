@@ -19,7 +19,7 @@
     }
     
     // get a handle to the database
-    $db = connect($dbHost, $dbUser, $dbPassword, $dbName);
+    $db = connect($DBHost, $DBUser, $DBPassword, $DBName);
     
     // get hashed password based on email
     $query = "select hashedPass from Employee where email='" . $email . "'";
