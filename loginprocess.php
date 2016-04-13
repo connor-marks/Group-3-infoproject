@@ -1,5 +1,5 @@
 <?php
-    include_once("util.php");
+    include_once("dbutils.php");
     include_once("config.php");
 
     // get data from fields
