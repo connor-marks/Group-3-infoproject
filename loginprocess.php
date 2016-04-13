@@ -22,7 +22,7 @@
     $db = connect($dbHost, $dbUser, $dbPassword, $dbName);
     
     // get hashed password based on email
-    $query = "select hashedPass, firstname, lastname from authpeople where email='" . $email . "'";
+    $query = "select hashedPass from Employee where email='" . $email . "'";
     $result = $db->query($query);
     if ($result) {
         $numberofrows = $result->num_rows;
