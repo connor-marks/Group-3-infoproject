@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 
 	// check if email already in database
 		// connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPasswd,$DBName);
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
 	$query = "SELECT email FROM Employee WHERE email='$email';";
