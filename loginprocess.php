@@ -32,9 +32,9 @@
             
             // check if the password matches the hashed version in the database
             // for version 5.5 or later we would use
-            //if (password_verify($password, $hashedPass)) {
+            if (password_verify($password, $hashedPass)) {
 	    // for versions of php under 5.5 we would use
-            if ($hashedPass == crypt($password, $hashedPass)) {
+            //if ($hashedPass == crypt($password, $hashedPass)) {
                 // we have verified the password
 		
 		// we'd do the opposite for versions under 5.3
