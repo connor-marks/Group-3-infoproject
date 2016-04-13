@@ -1,5 +1,5 @@
 <?php
-    include_once("util.php");
+    include_once("dbutils.php");
     include_once("config.php");
 
     // get data from fields
@@ -19,10 +19,10 @@
     }
     
     // get a handle to the database
-    $db = connect($dbHost, $dbUser, $dbPassword, $dbName);
+    $db = connect($DBHost, $DBUser, $DBPassword, $DBName);
     
     // get hashed password based on email
-    $query = "select hashedPass from people where email='" . $email . "'";
+    $query = "select hashedPass from Employee where email='" . $email . "'";
     $result = $db->query($query);
     if ($result) {
         $numberofrows = $result->num_rows;
