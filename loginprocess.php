@@ -1,5 +1,5 @@
 <?php
-    include_once("dbutils.php");
+    include_once("util.php");
     include_once("config.php");
 
     // get data from fields
@@ -19,10 +19,10 @@
     }
     
     // get a handle to the database
-    $db = connect($DBHost, $DBUser, $DBPassword, $DBName);
+    $db = connect($dbHost, $dbUser, $dbPassword, $dbName);
     
     // get hashed password based on email
-    $query = "select hashedPass from Employee where email='" . $email . "'";
+    $query = "select hashedPass from people where email='" . $email . "'";
     $result = $db->query($query);
     if ($result) {
         $numberofrows = $result->num_rows;
@@ -39,17 +39,15 @@
 		
 		// we'd do the opposite for versions under 5.3
                 if (session_start()) {
-					$_SESSION['email'] = $email;
-					$_SESSION['firstname'] = $row['firstname'];
-					$_SESSION['lastname'] = $row['lastname'];
-					header("Location: " . $baseURL . "testlogin.php");
-				} else {
-					// unable to start session (works for php >= 5.3)
-					reportErrorAndDie("Unable to start session");
-				}
+		    $_SESSION['email'] = $email;
+		    header("Location: " . $baseURL . "testlogin.php");
+		} else {
+		    // unable to start session (works for php >= 5.3)
+		    reportErrorAndDie("Unable to start session");
+		}
             } else {
                 // wrong password
-                reportErrorAndDie("Wrong password. <a href='login.php'>Try again</a>.<p>" . $db->error, "");
+                reportErrorAndDie("Wrong password. <a href='login.php'>Try again</a>.<p>" . $db->error, $query);
             }
         } else {
             reportErrorAndDie("Email not in our system. <a href='login.php'>Try again</a>.<p>" . $db->error, $query);
