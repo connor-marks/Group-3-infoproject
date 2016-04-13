@@ -16,5 +16,5 @@ $Email = "cnmarks@uiowa.edu";
 $DBUser = "cnmarks";
 $DBName = "db_cnmarks";
 $DBHost = "dbdev.cs.uiowa.edu";
-$DBPasswd = "-iFVGZ6L3B=V";
+$DBPassword = "-iFVGZ6L3B=V";
 ?>
