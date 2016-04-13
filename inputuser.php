@@ -176,7 +176,7 @@ if (isset($_POST['submit'])) {
 	
 	while($row = nextTuple($result)) {
 		echo "\n <tr>";
-		echo "<td>" . $row['email', 'hashedPass'] . "</td>";
+		echo "<td>" . $row['email'] . "</td>";
 		echo "</tr>";
 	}
 ?>
