@@ -4,19 +4,19 @@
 // as opposed to the mysqli object interface.
 
 // Connect to DB: config.php contains DB configuration.
-function connectDB($dbhost,$dbuser,$dbpasswd,$dbname) {
-  $db = mysqli_connect($dbhost,$dbuser,$dbpasswd,$dbname);
+function connectDB($DBhost,$DBuser,$DBPassword,$DBname) {
+  $db = mysqli_connect($DBhost,$DBuser,$dbPassword,$DBname);
   if (mysqli_connect_errno() != 0)
-    punt("Can't connect to MySQL server $dbhost db $dbname as user $dbuser");
+    punt("Can't connect to MySQL server $DBhost db $DBname as user $DBuser");
   return($db);
 }
 
 // Submit a query and return a result object. This is just syntactic 
 // sugar and error trapping.
-function queryDB($query, $db) {
-  $result = mysqli_query($db, $query);
+function queryDB($query, $DB) {
+  $result = mysqli_query($DB, $query);
   if (!$result)
-    punt ('Error in queryDB()', $query, $db);
+    punt ('Error in queryDB()', $query, $DB);
   return ($result);
 }
 
@@ -34,7 +34,7 @@ function nextTuple($result) {
 // as the optional second argument, will also retrieve and
 // display MySQL error information. Otherwise, if invoked
 // only with one argument, will print that argument.
-function punt($message, $query = '', $db = '') {
+function punt($message, $query = '', $DB = '') {
   $lastPart = '';
   // Check to see if error resulted from a bad query
   if ($query != '')
