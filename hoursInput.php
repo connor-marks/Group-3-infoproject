@@ -34,8 +34,7 @@
 </div>
 </div>
 
-	
-	// tell users that we added the hours to the database
+	<!-- tell users that we added the hours to the database -->
 	echo "<div class='panel panel-default'>\n";
 	echo "\t<div class='panel-body'>\n";
     echo "\t\tThe user " . $hours . " was added to the database\n";
@@ -53,6 +52,7 @@
 <div class="form-group">
 	<label for="Job"></label>
 	<input type="Job" class="form-control" name="Job"/>
+
 </div>
 <!-- drop down menu for hours -->
 <div class="dropdown">
