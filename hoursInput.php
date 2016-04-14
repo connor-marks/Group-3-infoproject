@@ -41,18 +41,26 @@
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
+<!-- Job form 
 <div class="form-group">
-	<label for="Job"></label>
+	<label for="Job">Job</label>
 	<input type="Job" class="form-control" name="Job"/>
-
+	
 </div>
-<!-- drop down menu for hours -->
-
-
+-->
 <div class="form-group">
-	<label for="Hours">Date</label>
-	<input type="Date" class="form-control" name="date"/>
-	<div class="container">
+  <label for="Job">Select list:</label>
+  <select class="form-control" name="job">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+
+<!-- start to end date -->
+
+<div class="container">
     <div class='col-md-5'>
         <div class="form-group">
             <div class='input-group date' id='datetimepicker6'>
@@ -88,7 +96,7 @@
         });
     });
 </script>
-</div>
+
 
 </div>
 
