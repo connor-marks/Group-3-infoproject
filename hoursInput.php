@@ -34,52 +34,6 @@
 </div>
 </div>
 
-<?php
-// Back to PHP to perform the search if one has been submitted. Note
-// that $_POST['submit'] will be set only if you invoke this PHP code as
-// the result of a POST action, presumably from having pressed Submit
-// on the form we just displayed above.
-if (isset($_POST['submit'])) {
-//	echo '<p>we are processing form data</p>';
-//	print_r($_POST);
-	// get data from the input fields
-	$email = $_POST['email'];
-	$password1 = $_POST['password1'];
-	$password2 = $_POST['password2'];
-	$name = $_POST['name'];
-	
-	// check to make sure we have an email
-	if (!$Job) {
-		punt("Please enter a Job");
-	}
-	if (!$Startdate) {
-		punt("Please enter a beginning date");
-	}
-	if (!$Enddate) {
-		punt("Please enter a end date");
-	}
-	
-	if (!$hours) {
-		punt("Please enter your hours");
-	}
-	// check if email already in database
-		// connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPasswd,$DBName);
-	
-	// set up my query
-	$query = "SELECT email FROM Employee WHERE email='$email';";
-	
-	// run the query
-	$result = queryDB($query, $db);
-	
-	}
-	
-	
-	// set up my query
-	$query = "INSERT INTO Employee(email, hashedPass) VALUES ('$email', '$hashedPass');";
-	
-	// run the query
-	$result = queryDB($query, $db);
 	
 	// tell users that we added the hours to the database
 	echo "<div class='panel panel-default'>\n";
