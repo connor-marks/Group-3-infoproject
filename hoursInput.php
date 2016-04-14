@@ -65,6 +65,7 @@
 <div class="container">
     <div class='col-md-5'>
         <div class="form-group">
+            <label for="Start Date">Start Date</label>
             <div class='input-group date' id='datetimepicker6'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
@@ -75,6 +76,7 @@
     </div>
     <div class='col-md-5'>
         <div class="form-group">
+            <label for="EndDate">End date</label>
             <div class='input-group date' id='datetimepicker7'>
                 <input type='text' class="form-control" />
                 <span class="input-group-addon">
