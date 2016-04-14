@@ -38,7 +38,6 @@
 	echo "<div class='panel panel-default'>\n";
 	echo "\t<div class='panel-body'>\n";
     echo "\t\tThe user " . $hours . " was added to the database\n";
-	echo "</div></div>\n";
 	
 }
 ?>
