@@ -41,22 +41,24 @@
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-<!-- Job form 
+<!-- Job form -->
 <div class="form-group">
 	<label for="Job">Job</label>
 	<input type="Job" class="form-control" name="Job"/>
 	
 </div>
--->
-<div class="form-group">
-  <label for="Job">Select list:</label>
-  <select class="form-control" name="job">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-  </select>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.spinner.js"></script>
+<link href="bootstrap-spinner.css" rel="stylesheet">
+<!-- input hours -->
+<div class="input-append spinner" data-trigger="spinner">
+<input type="text" value="1" data-rule="quantity">
+<div class="add-on"> <a href="javascript:;" class="spin-up" data-spin="up"><i class="icon-sort-up"></i></a> <a href="javascript:;" class="spin-down" data-spin="down"><i class="icon-sort-down"></i></a> </div>
+
 </div>
+
+
 
 <!-- start to end date -->
 
