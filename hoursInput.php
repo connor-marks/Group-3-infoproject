@@ -34,13 +34,6 @@
 </div>
 </div>
 
-	<!-- tell users that we added the hours to the database -->
-	echo "<div class='panel panel-default'>\n";
-	echo "\t<div class='panel-body'>\n";
-    echo "\t\tThe user " . $hours . " was added to the database\n";
-	
-}
-?>
 
 <!-- Form to enter new users -->
 <div class="row">
@@ -54,17 +47,7 @@
 
 </div>
 <!-- drop down menu for hours -->
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tutorials
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-    <li role="presentation"><a role="menuitem" href="#">HTML</a></li>
-    <li role="presentation"><a role="menuitem" href="#">CSS</a></li>
-    <li role="presentation"><a role="menuitem" href="#">JavaScript</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuitem" href="#">About Us</a></li>
-  </ul>
-</div>
+
 
 <div class="form-group">
 	<label for="Hours">Date</label>
