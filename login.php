@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Login to" . $Title; ?>
+		<?php echo "Login" .; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
@@ -91,7 +91,7 @@ if (isset($_POST['submit'])) {
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Login" . $Title; ?></h1>
+	<h1><?php echo "Login to " . $Title; ?></h1>
 </div>
 </div>
 </div>
