@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS NonProfitAccount;
 CREATE TABLE Employee(
 	email VARCHAR(45) UNIQUE NOT NULL,
 	name VARCHAR(45) NOT NULL,
-	hashedPass VARCHAR(30) NOT NULL,
+	hashedPass VARCHAR(256) NOT NULL,
 	phoneNumber INT NOT NULL,
 	address VARCHAR(100) NULL,
 	PRIMARY KEY (email)
