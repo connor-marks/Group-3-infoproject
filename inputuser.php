@@ -1,7 +1,6 @@
 <?php
 	include_once('config.php');
 	include_once('dbutils.php');
-	include_once('hashutil.php');
 ?>
 <html>
 <head>
@@ -22,7 +21,6 @@
 </head>
 
 <body>
-
 <div class="container">
 
 <!-- Page header -->
@@ -71,7 +69,7 @@ if (isset($_POST['submit'])) {
 	}
 
 	// check if email already in database
-		// connect to database
+	// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
@@ -79,17 +77,18 @@ if (isset($_POST['submit'])) {
 	
 	// run the query
 	$result = queryDB($query, $db);
-	
+
 	// check if the email is there
 	if (nTuples($result) > 0) {
-		punt("The email address $email is already in the database");
+	   punt("The email address $email is already in the database");
 	}
 	
-	// generate hashed password
-	$hashedPass = crypt($password1, getSalt());
+	// generate hashed password using the system-provided salt.
+	$hashedPass = crypt($password1);
 	
 	// set up my query
 	$query = "INSERT INTO Employee(email, hashedPass) VALUES ('$email', '$hashedPass');";
+	print($query);
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -97,9 +96,8 @@ if (isset($_POST['submit'])) {
 	// tell users that we added the player to the database
 	echo "<div class='panel panel-default'>\n";
 	echo "\t<div class='panel-body'>\n";
-    echo "\t\tThe user " . $email . " was added to the database\n";
+	echo "\t\tThe user " . $email . " was added to the database\n";
 	echo "</div></div>\n";
-	
 }
 ?>
 
