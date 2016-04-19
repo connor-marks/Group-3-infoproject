@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 	      if (session_start()) {
 	      	$_SESSION['email'] = $email;
 		// Where do you really want to go here?
-		header('Location: hours.php');
+		header('Location: account.php');
 	       } else {
 	        	punt("Unable to create session");
 	}
