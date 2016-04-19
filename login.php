@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Login" .; ?>
+		<?php echo "Login to " . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
