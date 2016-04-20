@@ -27,7 +27,7 @@
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Create Account: " . $Title; ?></h1>
+	<h1><?php echo "Add Job: " . $Title; ?></h1>
 </div>
 </div>
 </div>
@@ -42,30 +42,26 @@ if (isset($_POST['submit'])) {
 //	print_r($_POST);
 
 	// get data from the input fields
-	$email = $_POST['email'];
-	$password1 = $_POST['password1'];
-	$password2 = $_POST['password2'];
-	$name = $_POST['name'];
+	$jobTitle = $_POST['jobTitle'];
+	$parentCompany = $_POST['parentCompany'];
+	$address = $_POST['address'];
+	$hourlyPay = $_POST['hourlyPay'];
 	
 	// check to make sure we have an email
-	if (!$email) {
-		punt("Please enter a email");
+	if (!$jobTItle) {
+		punt("Please enter a job title");
 	}
 
-	if (!$password1) {
-		punt("Please enter a password");
+	if (!$parentCompany) {
+		punt("Please enter a company name");
 	}
 
-	if (!$password2) {
-		punt("Please enter your password twice");
+	if (!$address) {
+		punt("Please enter a company address");
 	}
 	
-	if ($password1 != $password2) {
-		punt("Your two passwords are not the same");
-	}
-	
-	if (!$name) {
-		punt("Please enter a name");
+	if (!$hourlyPay) {
+		punt("Please enter a hourly wage");
 	}
 
 	// check if email already in database
@@ -79,12 +75,12 @@ if (isset($_POST['submit'])) {
 	$result = queryDB($query, $db);
 
 	// check if the email is there
-	if (nTuples($result) > 0) {
-	   punt("The email address $email is already in the database");
-	}
+	//if (nTuples($result) > 0) {
+	   //punt("The email address $email is already in the database");
+	//}
 	
 	// generate hashed password using the system-provided salt.
-	$hashedPass = crypt($password1);
+	//$hashedPass = crypt($password1);
 	
 	// set up my query
 	$query = "INSERT INTO Employee(email, hashedPass) VALUES ('$email', '$hashedPass');";
@@ -107,43 +103,23 @@ if (isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <div class="form-group">
-	<label for="email">Email</label>
-	<input type="email" class="form-control" name="email"/>
+	<label for="jobTitle">Job Title:</label>
+	<input type="text" class="form-control" name="jobTitle"/>
 </div>
 
 <div class="form-group">
-	<label for="password1">Password</label>
-	<input type="password" class="form-control" name="password1"/>
+	<label for="parentCompany">Company Name:</label>
+	<input type="text" class="form-control" name="password1"/>
 </div>
 
 <div class="form-group">
-	<label for="password2">Please enter password again</label>
-	<input type="password" class="form-control" name="password2"/>
+	<label for="address">Company Address:</label>
+	<input type="text" class="form-control" name="address"/>
 </div>
 
 <div class="form-group">
-	<label for="name">Please enter full name</label>
-	<input type="name" class="form-control" name="name"/>
-</div>
-
-<div class="form-group">
-	<label for="phoneNumber">Please enter your phone number</label>
-	<input type="phoneNumber" class="form-control" name="phoneNumber"/>
-</div>
-
-<div class="form-group">
-	<label for="address">Please enter your home address</label>
-	<input type="address" class="form-control" name="address"/>
-</div>
-
-<div class="form-group">
-	<label for="Job">Please enter your Job title</label>
-	<input type="job" class="form-control" name="job"/>
-</div>
-
-<div class="form-group">
-	<label for="Company">Please enter your Company Name</label>
-	<input type="Company" class="form-control" name="Company"/>
+	<label for="hourlyPay">Hourly Wage:</label>
+	<input type="text" class="form-control" name="hourlyPay"/>
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
@@ -164,19 +140,19 @@ if (isset($_POST['submit'])) {
 <tbody>
 <?php
 	// connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	//$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
-	$query = "SELECT email FROM Employee ORDER BY email;";
+	//$query = "SELECT email FROM Employee ORDER BY email;";
 	
 	// run the query
-	$result = queryDB($query, $db);
+	//$result = queryDB($query, $db);
 	
-	while($row = nextTuple($result)) {
-		echo "\n <tr>";
-		echo "<td>" . $row['email'] . "</td>";
-		echo "</tr>";
-	}
+	//while($row = nextTuple($result)) {
+		//echo "\n <tr>";
+		//echo "<td>" . $row['email'] . "</td>";
+		//echo "</tr>";
+	//}
 ?>
 
 </tbody>
