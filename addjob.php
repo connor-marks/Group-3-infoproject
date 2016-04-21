@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Sign up " . $Title; ?>
+		<?php echo "Add Job" . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
