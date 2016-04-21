@@ -143,16 +143,6 @@ if (isset($_POST['submit'])) {
 	<input type="address" class="form-control" name="address"/>
 </div>
 
-<div class="form-group">
-	<label for="Job">Please enter your Job title</label>
-	<input type="job" class="form-control" name="job"/>
-</div>
-
-<div class="form-group">
-	<label for="Company">Please enter your Company Name</label>
-	<input type="Company" class="form-control" name="Company"/>
-</div>
-
 <button type="submit" class="btn btn-default" name="submit">Add</button>
 
 </form>
