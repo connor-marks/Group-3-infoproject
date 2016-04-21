@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+  if (session_start()) {
+	  $email = $_SESSION['email'];
+      $pass = $_SESSION['password'];
+      $name = $_SESSION['name'];
+	  $address = $_SESSION['address'];
+	  $phoneNumber = $_SESSION['phoneNumber'];
+  }
+?>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -43,8 +52,9 @@
             <h3 class="panel-title">User Info</h3>
         </div>
       <div class="panel-body">
-        <div class="row text-center">Name: John Doe</div>
-        <div class="row text-center">Email: johndoe@email.com</div>
+        <div class="row text-center">Name: <?php echo $name; ?></div>
+        <div class="row text-center">Email: <?php echo $email; ?></div>
+        
       </div>
     </div>
           

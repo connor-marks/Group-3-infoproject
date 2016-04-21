@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
-	$query = "SELECT hashedPass FROM Employee WHERE email='$email';";
+	$query = "SELECT hashedPass, name, phoneNumber, address FROM Employee WHERE email='$email';";
 	//print($query);
 	
 	// run the query
@@ -67,6 +67,11 @@ if (isset($_POST['submit'])) {
 	      // Password is correct
 	      if (session_start()) {
 	      	$_SESSION['email'] = $email;
+			$_SESSION['password'] = $row['hashedPass'];
+			$_SESSION['name'] = $row['name'];
+			$_SESSION['phoneNumber'] = $row['phoneNumber'];
+			$_SESSION['address'] = $row['address'];
+			
 		// Where do you really want to go here?
 		header('Location: account.php');
 	       } else {
