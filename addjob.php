@@ -51,22 +51,7 @@ if (isset($_POST['submit'])) {
 	$address = $_POST['address'];
 	$hourlyPay = $_POST['hourlyPay'];
 	
-	// check to make sure we have an email
-	//if (!$jobTitle) {
-	//	punt("Please enter a job title");
-	//}
-
-	if (!$parentCompany) {
-		punt("Please enter a company name");
-	}
-
-	if (!$address) {
-		punt("Please enter a company address");
-	}
 	
-	if (!$hourlyPay) {
-		punt("Please enter a hourly wage");
-	}
 
 	// check if email already in database
 	// connect to database
@@ -98,6 +83,8 @@ if (isset($_POST['submit'])) {
 	
 	// run the query
 	$result = queryDB($query, $db);
+	$result = queryDB($query1, $db);
+	$result = queryDB($query2, $db);
 	
 	// tell users that we added the player to the database
 	echo "<div class='panel panel-default'>\n";
