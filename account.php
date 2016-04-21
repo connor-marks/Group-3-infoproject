@@ -54,6 +54,8 @@
       <div class="panel-body">
         <div class="row text-center">Name: <?php echo $name; ?></div>
         <div class="row text-center">Email: <?php echo $email; ?></div>
+        <div class="row text-center">Address: <?php echo $address; ?></div>
+        <div class="row text-center">Phone Number: <?php echo $phoneNumber; ?></div>
         
       </div>
     </div>
