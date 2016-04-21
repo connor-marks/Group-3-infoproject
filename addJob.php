@@ -139,7 +139,7 @@ echo "<option value=\"parentCompany\">" . $row['parentCompany'] . "</option>";
 <tbody>
 <?php
 	//connect to database
-	//$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	//set up my query
 	$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
