@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
 	$password1 = $_POST['password1'];
 	$password2 = $_POST['password2'];
 	$name = $_POST['name'];
-	$phoneNumber $_POST['phoneNumber'];
+	$phoneNumber = $_POST['phoneNumber'];
 	$address = $_POST['address'];
 	
 	
@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 	}
 	
 	if (!$address) {
-		punt ("Please enter a name")
+		punt ("Please enter a name");
 	}
 
 	// check if email already in database
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
 	$hashedPass = crypt($password1);
 	
 	// set up my query
-	$query = "INSERT INTO Employee(email, hashedPass, name, phoneNumber, address) VALUES ('$email', '$hashedPass', '$name', '$phoneNumber, $address);";
+	$query = "INSERT INTO Employee(email, hashedPass, name, phoneNumber, address) VALUES ('$email', '$hashedPass', '$name', '$phoneNumber', '$address');";
 	print($query);
 	
 	// run the query
