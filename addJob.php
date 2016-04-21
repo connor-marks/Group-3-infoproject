@@ -138,13 +138,13 @@ echo "<option value=\"parentCompany\">" . $row['parentCompany'] . "</option>";
 
 <tbody>
 <?php
-	connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	//connect to database
+	//$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
-	set up my query
+	//set up my query
 	$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
 	
-	run the query
+	//run the query
 	$result = queryDB($query, $db);
 	
 	while($row = nextTuple($result)) {
