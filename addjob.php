@@ -52,9 +52,9 @@ if (isset($_POST['submit'])) {
 	$hourlyPay = $_POST['hourlyPay'];
 	
 	// check to make sure we have an email
-	if (!$jobTItle) {
-		punt("Please enter a job title");
-	}
+	//if (!$jobTItle) {
+	//	punt("Please enter a job title");
+	//}
 
 	if (!$parentCompany) {
 		punt("Please enter a company name");
