@@ -63,6 +63,22 @@ if (isset($_POST['submit'])) {
 	// run the query
 	$result = queryDB($query, $db);
 
+	// set up my query
+	$query = "SELECT Compnayid, parentCompany, address FROM Company ORDER BY parentCompany;";
+	
+	// run the query
+	$result = queryDB($query, $db);
+	
+	// options for club teams
+	$parentCompanyOptions= "";
+	
+	// go through all club teams and put together pull down menu
+	while ($row = nextTuple($result)) {
+		$clubTeamOptions .= "\t\t\t";
+		$clubTeamOptions .= "<option value='";
+		$clubTeamOptions .= $row['Companyid'] . "'>" . $row['ParentCompany'] . ")</option>\n";
+	}
+?>
 	// check if the email is there
 	//if (nTuples($result) > 0) {
 	   //punt("The email address $email is already in the database");
@@ -102,15 +118,12 @@ if (isset($_POST['submit'])) {
 	<input type="text" class="form-control" name="jobTitle"/>
 </div>
 
-<select name="parentCompany">
-<?php 
-$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
-$sql = mysql_query("SELECT parentCompany FROM Company");
-while ($row = mysql_fetch_array($sql)){
-echo "<option value=\"parentCompany\">" . $row['parentCompany'] . "</option>";
-}
-?>
-</select>
+<div class="form-group">
+	<label for="parentCompany">Select Company</label>
+	<select class="form-control" name="parentCompany">
+<?php echo $parentCompanyOptions; ?>
+	</select>
+</div>
 
 <div class="form-group">
 	<label for="address">Company Address:</label>
