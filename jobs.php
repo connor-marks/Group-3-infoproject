@@ -36,7 +36,7 @@
             <h3 class="panel-title">User Jobs</h3>
         </div>
       <div class="panel-body">
-        <a class="btn btn-danger" style="margin-bottom: 10px;" href="addjob.php" role="button">Add Job</a>
+        <a class="btn btn-danger" style="margin-bottom: 10px;" href="addJob.php" role="button">Add Job</a>
         
           <div class="panel panel-default text-center">
         <div class="panel-heading">
