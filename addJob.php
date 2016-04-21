@@ -72,14 +72,12 @@ if (isset($_POST['submit'])) {
 	//$hashedPass = crypt($password1);
 	
 	// set up my query
-	$query = "INSERT INTO Job(jobTitle, email) VALUES ('$jobTitle', '$email');";
+	$query = "INSERT INTO Job(jobTitle, hourlyPay, email) VALUES ('$jobTitle', '$hourlyPay', $email');";
 	print($query);
 	
 	$query1 = "INSERT INTO Company(parentCompany, address) VALUES ('$parentCompany', '$address');";
 	print($query1);
 	
-	$query2 = "INSERT INTO Hours(hourlyPay) VALUES ('$hourlyPay');";
-	print($query2);
 	
 	// run the query
 	$result = queryDB($query, $db);
