@@ -102,10 +102,14 @@ if (isset($_POST['submit'])) {
 	<input type="text" class="form-control" name="jobTitle"/>
 </div>
 
-<div class="form-group">
-	<label for="parentCompany">Company Name:</label>
-	<input type="text" class="form-control" name="parentCompany"/>
-</div>
+<select name="parentCompany">
+<?php 
+$sql = mysql_query("SELECT parentCompany FROM Company");
+while ($row = mysql_fetch_array($sql)){
+echo "<option value=\"parentCompany\">" . $row['parentCompany'] . "</option>";
+}
+?>
+</select>
 
 <div class="form-group">
 	<label for="address">Company Address:</label>
