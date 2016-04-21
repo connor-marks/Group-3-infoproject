@@ -104,6 +104,7 @@ if (isset($_POST['submit'])) {
 
 <select name="parentCompany">
 <?php 
+$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 $sql = mysql_query("SELECT parentCompany FROM Company");
 while ($row = mysql_fetch_array($sql)){
 echo "<option value=\"parentCompany\">" . $row['parentCompany'] . "</option>";
