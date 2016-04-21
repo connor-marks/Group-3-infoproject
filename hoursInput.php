@@ -14,15 +14,6 @@
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
- -	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
- -
- -	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
- -	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
- -	
- -	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
- -	<script src="javascripts/jquery.spin.js" type="text/javascript"></script>
- -	<link href="stylesheets/jquery.spin.css" rel="stylesheet" type="text/css" />
 	
 	<link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
 	<script src="/jquery.js"></script>
