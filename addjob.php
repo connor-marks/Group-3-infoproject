@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 	$hourlyPay = $_POST['hourlyPay'];
 	
 	// check to make sure we have an email
-	//if (!$jobTItle) {
+	//if (!$jobTitle) {
 	//	punt("Please enter a job title");
 	//}
 
@@ -119,7 +119,7 @@ if (isset($_POST['submit'])) {
 
 <div class="form-group">
 	<label for="parentCompany">Company Name:</label>
-	<input type="text" class="form-control" name="password1"/>
+	<input type="text" class="form-control" name="parentCompany"/>
 </div>
 
 <div class="form-group">
