@@ -67,3 +67,13 @@ CREATE TABLE NonProfitAccount(
 	nonProfitPassword VARCHAR(30) NOT NULL,
 	PRIMARY KEY (userID)
 );
+
+INSERT INTO Company (parentCompany, address) VALUES ('Walmart', '123 Main st');
+INSERT INTO Company (parentCompany, address) VALUES ('Home Depot', '123 South st');
+INSERT INTO Company (parentCompany, address) VALUES ('Walgreens', '123 North st');
+INSERT INTO Company (parentCompany, address) VALUES ('Target', '123 West st');
+INSERT INTO Company (parentCompany, address) VALUES ('Bo James', '123 East st');
+INSERT INTO Company (parentCompany, address) VALUES ('Kum and Go', '123 Burlington st');
+
+
+
