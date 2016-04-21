@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>
-		<?php echo "Add Hour " . $Title; ?>
+		<?php echo "Add Pay Stub " . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
@@ -27,7 +27,7 @@
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Add Hours: " . $Title; ?></h1>
+	<h1><?php echo "Add Pay Stub: " . $Title; ?></h1>
 </div>
 </div>
 </div>
