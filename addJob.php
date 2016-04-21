@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
 	$result = queryDB($query, $db);
 
 	// set up my query
-	$query = "SELECT Compnayid, parentCompany, address FROM Company ORDER BY parentCompany;";
+	$query = "SELECT CompnayID, parentCompany, address FROM Company ORDER BY parentCompany;";
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 	while ($row = nextTuple($result)) {
 		$clubTeamOptions .= "\t\t\t";
 		$clubTeamOptions .= "<option value='";
-		$clubTeamOptions .= $row['Companyid'] . "'>" . $row['ParentCompany'] . ")</option>\n";
+		$clubTeamOptions .= $row['CompanyID'] . "'>" . $row['parentCompany'] . ")</option>\n";
 	}
 ?>
 	// check if the email is there
