@@ -138,20 +138,20 @@ echo "<option value=\"parentCompany\">" . $row['parentCompany'] . "</option>";
 
 <tbody>
 <?php
-	// connect to database
-	//$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	connect to database
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
-	// set up my query
-	//$query = "SELECT email FROM Employee ORDER BY email;";
+	set up my query
+	$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
 	
-	// run the query
-	//$result = queryDB($query, $db);
+	run the query
+	$result = queryDB($query, $db);
 	
-	//while($row = nextTuple($result)) {
-		//echo "\n <tr>";
-		//echo "<td>" . $row['email'] . "</td>";
-		//echo "</tr>";
-	//}
+	while($row = nextTuple($result)) {
+		echo "\n <tr>";
+		echo "<td>" . $row['parentCompany'] . "</td>";
+		echo "</tr>";
+	}
 ?>
 
 </tbody>
