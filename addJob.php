@@ -6,6 +6,30 @@
 	  $email = $_SESSION['email'];
 	}
 ?>
+
+<?php
+// check if email already in database
+	// connect to database
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+
+	// set up my query
+	$query = "SELECT compnayID, parentCompany, address FROM Company ORDER BY parentCompany;";
+	
+	// run the query
+	$result = queryDB($query, $db);
+	
+	// options for club teams
+	$parentCompanyOptions= "";
+	
+	// go through all club teams and put together pull down menu
+	while ($row = nextTuple($result)) {
+		$clubTeamOptions .= "\t\t\t";
+		$clubTeamOptions .= "<option value='";
+		$clubTeamOptions .= $row['companyID'] . "'>" . $row['parentCompany'] . ")</option>\n";
+	}
+?>
+
+
 <html>
 <head>
 	<title>
@@ -63,22 +87,6 @@ if (isset($_POST['submit'])) {
 	// run the query
 	$result = queryDB($query, $db);
 
-	// set up my query
-	$query = "SELECT CompnayID, parentCompany, address FROM Company ORDER BY parentCompany;";
-	
-	// run the query
-	$result = queryDB($query, $db);
-	
-	// options for club teams
-	$parentCompanyOptions= "";
-	
-	// go through all club teams and put together pull down menu
-	while ($row = nextTuple($result)) {
-		$clubTeamOptions .= "\t\t\t";
-		$clubTeamOptions .= "<option value='";
-		$clubTeamOptions .= $row['CompanyID'] . "'>" . $row['parentCompany'] . ")</option>\n";
-	}
-?>
 	// check if the email is there
 	//if (nTuples($result) > 0) {
 	   //punt("The email address $email is already in the database");
