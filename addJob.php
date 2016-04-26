@@ -13,7 +13,7 @@
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 
 	// set up my query
-	$query = "SELECT compnayID, parentCompany, address FROM Company ORDER BY parentCompany;";
+	$query = "SELECT companyID, parentCompany, address FROM Company ORDER BY parentCompany;";
 	
 	// run the query
 	$result = queryDB($query, $db);
