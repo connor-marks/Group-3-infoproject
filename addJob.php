@@ -14,6 +14,7 @@
 
 	// set up my query
 	$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany;";
+	print($query);
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -75,24 +76,12 @@ if (isset($_POST['submit'])) {
 	$address = $_POST['address'];
 	$hourlyPay = $_POST['hourlyPay'];
 	
-	//connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
-	
-	//set up my query
-	$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
-	
-	//run the query
-	$result = queryDB($query, $db);
-	
-	while($row = nextTuple($result)) {
-		echo "\n <tr>";
-		echo "<td>" . $row['parentCompany'] . "</td>";
-		echo "</tr>";
-	}
 
 	// check if email already in database
 	// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	
+	echo $email;
 	
 	// set up my query
 	$query = "SELECT email FROM Employee WHERE email='$email';";
