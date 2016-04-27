@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
 	//$hashedPass = crypt($password1);
 	
 	// set up my query
-	$query = "INSERT INTO Job(jobTitle, hourlyPay, email) VALUES ('$jobTitle', '$hourlyPay', $email');";
+	$query = "INSERT INTO Job(jobTitle, hourlyPay, email) VALUES ('$jobTitle', '$hourlyPay', '$email');";
 	print($query);
 	
 	$query1 = "INSERT INTO Company(parentCompany, address) VALUES ('$parentCompany', '$address');";
