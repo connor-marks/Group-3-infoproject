@@ -22,7 +22,7 @@
 	print($result);
 	
 	 check if the companies are there
-	if (nTuples($result) = 0) {
+	if (nTuples($result) <= 0) {
 	   print("There are no companies in the databse.");
 	}
 	
@@ -33,7 +33,6 @@
 	while ($row = nextTuple($result)) {
 		$clubTeamOptions .= "\t\t\t";
 		$clubTeamOptions .= "<option value='";
-		echo $row;
 		$clubTeamOptions .= $row['companyID'] . "'>" . $row['parentCompany'] . ")</option>\n";
 	}
 ?>
