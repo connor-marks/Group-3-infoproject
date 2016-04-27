@@ -15,9 +15,16 @@
 	// set up my query
 	$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany;";
 	print($query);
+
 	
 	// run the query
 	$result = queryDB($query, $db);
+	print($result);
+	
+	 check if the companies are there
+	if (nTuples($result) = 0) {
+	   print("There are no companies in the databse.");
+	}
 	
 	// options for club teams
 	$parentCompanyOptions= "";
