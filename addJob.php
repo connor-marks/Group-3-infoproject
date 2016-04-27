@@ -26,6 +26,7 @@
 	while ($row = nextTuple($result)) {
 		$clubTeamOptions .= "\t\t\t";
 		$clubTeamOptions .= "<option value='";
+		echo $row;
 		$clubTeamOptions .= $row['companyID'] . "'>" . $row['parentCompany'] . ")</option>\n";
 	}
 ?>
