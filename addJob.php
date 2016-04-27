@@ -21,7 +21,7 @@
 	$result = queryDB($query, $db);
 	print($result);
 	
-	 check if the companies are there
+	 //check if the companies are there
 	if (nTuples($result) <= 0) {
 	   print("There are no companies in the databse.");
 	}
