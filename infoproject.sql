@@ -75,7 +75,7 @@ INSERT INTO Company (parentCompany, address) VALUES ('Walgreens', '123 North st'
 INSERT INTO Company (parentCompany, address) VALUES ('Target', '123 West st');
 INSERT INTO Company (parentCompany, address) VALUES ('Bo James', '123 East st');
 INSERT INTO Company (parentCompany, address) VALUES ('Kum and Go', '123 Burlington st');
-INSERT INTO NonProfitAccount(email, hapassword) VALUES ('john-doe@uiowa.edu','12345');
+INSERT INTO NonProfitAccount(email, hashedPass) VALUES ('john-doe@uiowa.edu','12345');
 
 
 
