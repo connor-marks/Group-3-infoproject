@@ -66,7 +66,7 @@
 // the result of a POST action, presumably from having pressed Submit
 // on the form we just displayed above.
 if (isset($_POST['submit'])) {
-//	echo '<p>we are processing form data</p>';
+	echo '<p>we are processing form data</p>';
 //	print_r($_POST);
 
 	// get data from the input fields
@@ -75,7 +75,20 @@ if (isset($_POST['submit'])) {
 	$address = $_POST['address'];
 	$hourlyPay = $_POST['hourlyPay'];
 	
+	//connect to database
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
+	//set up my query
+	$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
+	
+	//run the query
+	$result = queryDB($query, $db);
+	
+	while($row = nextTuple($result)) {
+		echo "\n <tr>";
+		echo "<td>" . $row['parentCompany'] . "</td>";
+		echo "</tr>";
+	}
 
 	// check if email already in database
 	// connect to database
