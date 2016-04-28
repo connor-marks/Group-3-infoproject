@@ -11,11 +11,9 @@
 // check if email already in database
 	// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
-
 	// set up my query
 	$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany";
 	print($query);
-
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -74,28 +72,23 @@
 // the result of a POST action, presumably from having pressed Submit
 // on the form we just displayed above.
 if (isset($_POST['submit'])) {
-	echo '<p>we are processing form data</p>';
+	//echo '<p>we are processing form data</p>';
 //	print_r($_POST);
-
 	// get data from the input fields
 	$jobTitle = $_POST['jobTitle'];
 	$parentCompany = $_POST['parentCompany'];
 	$address = $_POST['address'];
-	$hourlyPay = $_POST['hourlyPay'];
-	
+	$hourlyPay = $_POST[hourlyPay];
 
+	//echo $parentCompany;
+	
 	// check if email already in database
 	// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
-	echo $email;
+	//echo $email;
 	
 	// set up my query
-	$query = "SELECT email FROM Employee WHERE email='$email';";
-	
-	// run the query
-	$result = queryDB($query, $db);
-
 	// check if the email is there
 	//if (nTuples($result) > 0) {
 	   //punt("The email address $email is already in the database");
@@ -105,22 +98,17 @@ if (isset($_POST['submit'])) {
 	//$hashedPass = crypt($password1);
 	
 	// set up my query
-	$query = "INSERT INTO Job(jobTitle, hourlyPay, email) VALUES ('$jobTitle', '$hourlyPay', '$email');";
-	print($query);
-	
-	$query1 = "INSERT INTO Company(parentCompany, address) VALUES ('$parentCompany', '$address');";
-	print($query1);
+	$query = "INSERT INTO Job(jobTitle, hourlyPay, email, companyID) VALUES ('$jobTitle', '$hourlyPay', '$email', '$parentCompany');";
+	print $query;
 	
 	
 	// run the query
 	$result = queryDB($query, $db);
-	$result = queryDB($query1, $db);
-	$result = queryDB($query2, $db);
 	
 	// tell users that we added the player to the database
 	echo "<div class='panel panel-default'>\n";
 	echo "\t<div class='panel-body'>\n";
-	echo "\t\tThe user " . $email . " was added to the database\n";
+	echo "\t\tThe job " . $jobTitle . " was added to the database\n";
 	echo "</div></div>\n";
 }
 ?>
@@ -150,7 +138,7 @@ if (isset($_POST['submit'])) {
 
 <div class="form-group">
 	<label for="hourlyPay">Hourly Wage:</label>
-	<input type="text" class="form-control" name="hourlyPay"/>
+	<input type="number" step=".1" class="form-control" name="hourlyPay"/>
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
@@ -182,6 +170,23 @@ if (isset($_POST['submit'])) {
 	while($row = nextTuple($result)) {
 		echo "\n <tr>";
 		echo "<td>" . $row['parentCompany'] . "</td>";
+		echo "</tr>";
+	}
+?>
+
+<?php
+	//connect to database
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	
+	//set up my query
+	$query = "SELECT jobTitle FROM Job ORDER BY jobTitle;";
+	
+	//run the query
+	$result = queryDB($query, $db);
+	
+	while($row = nextTuple($result)) {
+		echo "\n <tr>";
+		echo "<td>" . $row['jobTitle'] . "</td>";
 		echo "</tr>";
 	}
 ?>
