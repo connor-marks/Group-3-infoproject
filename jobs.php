@@ -59,7 +59,7 @@
           $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
   
           //set up my query
-          $query = "SELECT Company.parentCompany, Company.companyID, Job.companyID FROM Company INNER JOIN Job ON Company.companyID = Job.companyID;";
+          $query = "SELECT Company.parentCompany, Company.companyID, Job.companyID FROM Company INNER JOIN Job ON Company.companyID = Job.companyID WHERE Job.email = '$email';";
   
           //run the query
           $result = queryDB($query, $db);
