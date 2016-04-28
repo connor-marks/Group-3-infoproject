@@ -66,7 +66,7 @@
   
           while($row = nextTuple($result)) {
           echo "Company: ";
-          echo "<td class='text-center'>" . $row['parentCompany'] . "</br>";
+          echo "<td class='text-center'> <b>" . $row['parentCompany'] . "</b></td></br>";
           }
   ?>
         </div>
@@ -83,7 +83,7 @@
   
           while($row = nextTuple($result)) {
           echo "Wage: ";
-          echo "<td>" . $row['hourlyPay'] . "</br>";
+          echo "<b>$" . $row['hourlyPay'] . "</b></br>";
           }
   ?>
         </div>

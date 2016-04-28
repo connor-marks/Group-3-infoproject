@@ -63,9 +63,9 @@
           $result = queryDB($query, $db);
   
           while($row = nextTuple($result)) {
-          echo "Paycheck Amount: $";
-          echo "<td>" . $row['payCheck'];
-          echo " for dates: " . $row['startDate'] . " to " . $row['endDate'] . " recieved on " . $row[payDate] . " for job title " . $row['jobTitle'] . "</br>";
+          echo "Paycheck Amount: <b>$";
+          echo $row['payCheck'];
+          echo "</b> for dates: <b>" . $row['startDate'] . "</b> to <b>" . $row['endDate'] . "</b> recieved on <b>" . $row[payDate] . "</b> for job: <b>" . $row['jobTitle'] . "</b></br>";
           }
   ?>
         </div>

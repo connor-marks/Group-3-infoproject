@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+  include_once('config.php');
+  include_once('dbutils.php');
+  
+  if (session_start()) {
+    $email = $_SESSION['email'];
+  }
+?>
+
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -43,10 +52,24 @@
             <h3 class="panel-title">Recent Hour Updates</h3>
         </div>
       <div class="panel-body">
-        <div class="row text-center">4/8: 8 hours at $15/hr for job: Target</div>
-        <div class="row text-center">4/7: 8 hours at $15/hr for job: Target</div>
-        <div class="row text-center">4/6: 8 hours at $15/hr for job: Target</div>
-        <div class="row text-center">4/5: 8 hours at $15/hr for job: Target</div>
+        <div class="row text-center">
+          <?php
+          //connect to database
+          $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+  
+          //set up my query
+          $query = "SELECT Hours.hoursWorked, Hours.startDate, Hours.endDate, Hours.jobID, Job.jobTitle, Job.jobID, Job.hourlyPay, Job.email FROM Hours INNER JOIN Job ON Hours.jobID = Job.jobID WHERE Job.email = '$email';";
+  
+          //run the query
+          $result = queryDB($query, $db);
+  
+          while($row = nextTuple($result)) {
+          echo "Paid: <b>$";
+          echo ($row['hourlyPay'] * $row['hoursWorked']);
+          echo "</b> for <b>" . $row['hoursWorked'] . "</b> hours worked from <b>" . $row['startDate'] . "</b> to <b>" . $row['endDate'] . "</b>  for job: <b>" . $row['jobTitle'] . "</b></br>";
+          }
+  ?>
+        </div>
       </div>
     </div>
           
