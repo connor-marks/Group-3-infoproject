@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+  include_once('config.php');
+  include_once('dbutils.php');
+  
+  if (session_start()) {
+    $email = $_SESSION['email'];
+  }
+?>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -43,10 +51,24 @@
             <h3 class="panel-title">Recent Pay Stubs Submitted</h3>
         </div>
       <div class="panel-body">
-        <div class="row text-center">Uploaded: 4/8 for dates: 3/26 to 4/8</div>
-        <div class="row text-center">Uploaded: 3/26 for dates: 3/18 to 3/26</div>
-        <div class="row text-center">Uploaded: 3/18 for dates: 3/3 to 3/18 to</div>
-        <div class="row text-center">Uploaded: 3/3 for dates: 2/23 to 3/3</div>
+        <div class="row text-center">
+          <?php
+          //connect to database
+          $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+  
+          //set up my query
+          $query = "SELECT Wage.payCheck, Wage.startDate, Wage.endDate, Wage.payDate, Wage.jobID, Job.jobTitle, Job.jobID, Job.email FROM Wage INNER JOIN Job ON Wage.jobID = Job.jobID WHERE Job.email = '$email';";
+  
+          //run the query
+          $result = queryDB($query, $db);
+  
+          while($row = nextTuple($result)) {
+          echo "Paycheck Amount: $";
+          echo "<td>" . $row['payCheck'];
+          echo " for dates: " . $row['startDate'] . " to " . $row['endDate'] . " recieved on " . $row[payDate] . " for job title " . $row['jobTitle'] . "</br>";
+          }
+  ?>
+        </div>
       </div>
     </div>
           
