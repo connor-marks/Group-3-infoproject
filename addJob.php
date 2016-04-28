@@ -13,7 +13,7 @@
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 
 	// set up my query
-	$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany;";
+	$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany";
 	print($query);
 
 	
@@ -30,9 +30,8 @@
 	
 	// go through all club teams and put together pull down menu
 	while ($row = nextTuple($result)) {
-		$clubTeamOptions .= "\t\t\t";
-		$clubTeamOptions .= "<option value='";
-		$clubTeamOptions .= $row['companyID'] . "'>" . $row['parentCompany'] . ")</option>\n";
+		$parentCompanyOptions .= "<option value='";
+		$parentCompanyOptions .= $row['companyID'] . "'>" . $row['parentCompany'] . "</option>";
 	}
 ?>
 
@@ -42,7 +41,9 @@
 	<title>
 		<?php echo "Add Job" . $Title; ?>
 	</title>
-
+	<!-- import jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
 	<!-- Following three lines are necessary for running Bootstrap -->
 	
 	<!-- Latest compiled and minified CSS -->
@@ -104,7 +105,7 @@ if (isset($_POST['submit'])) {
 	//$hashedPass = crypt($password1);
 	
 	// set up my query
-	$query = "INSERT INTO Job(jobTitle, hourlyPay, email) VALUES ('$jobTitle', $hourlyPay, '$email');";
+	$query = "INSERT INTO Job(jobTitle, hourlyPay, email) VALUES ('$jobTitle', '$hourlyPay', '$email');";
 	print($query);
 	
 	$query1 = "INSERT INTO Company(parentCompany, address) VALUES ('$parentCompany', '$address');";
@@ -137,7 +138,8 @@ if (isset($_POST['submit'])) {
 <div class="form-group">
 	<label for="parentCompany">Select Company</label>
 	<select class="form-control" name="parentCompany">
-<?php echo $parentCompanyOptions; ?>
+		<option selected disabled></option>
+	<?php echo $parentCompanyOptions;?>
 	</select>
 </div>
 
