@@ -36,6 +36,21 @@
 
 <html>
 <head>
+	<!-- Following three lines are necessary for running Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	
+	<script>
+		$(function() {
+			$( "#startDatepicker" ).datepicker();
+		});
+		$(function() {
+			$( "#endDatepicker" ).datepicker();
+		});
+	</script>
+	
 	<title>
 		<?php echo "Add Hours " . $Title; ?>
 	</title>
@@ -122,13 +137,11 @@ if (isset($_POST['submit'])) {
 </div>
 
 <div class="form-group">
-	<label for="startdate">Please enter the start date YYYY-MM-DD</label>
-	<input type="startdate" class="form-control" name="startdate"/>
-</div>
-
-<div class="form-group">
-	<label for="enddate">Please enter the end date YYYY-MM-DD</label>
-	<input type="enddate" class="form-control" name="enddate"/>
+	<label for="startdate">Start Date</label>
+	<input name="startdate" type="text" id="startDatepicker"><br>
+	
+	<label for="enddate">End Date</label>
+	<input name="enddate" type="text" id="endDatepicker">
 </div>
 
 <div class="form-group">
