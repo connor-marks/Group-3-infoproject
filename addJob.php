@@ -13,7 +13,7 @@
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	// set up my query
 	$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany";
-	print($query);
+	//print($query);
 	
 	// run the query
 	$result = queryDB($query, $db);
@@ -99,17 +99,22 @@ if (isset($_POST['submit'])) {
 	
 	// set up my query
 	$query = "INSERT INTO Job(jobTitle, hourlyPay, email, companyID) VALUES ('$jobTitle', '$hourlyPay', '$email', '$parentCompany');";
-	print $query;
+	//print $query;
 	
 	
 	// run the query
 	$result = queryDB($query, $db);
 	
 	// tell users that we added the player to the database
-	echo "<div class='panel panel-default'>\n";
-	echo "\t<div class='panel-body'>\n";
-	echo "\t\tThe job " . $jobTitle . " was added to the database\n";
-	echo "</div></div>\n";
+	//echo "<div class='panel panel-default'>\n";
+	//echo "\t<div class='panel-body'>\n";
+	//echo "\t\tThe job " . $jobTitle . " was added to the database, you will be redirected in 3, 2, 1..\n";
+	//echo "</div></div>\n";
+
+
+
+	// takes the user where they should go after successful submit!
+	header('Location: jobs.php');
 }
 ?>
 
@@ -159,36 +164,36 @@ if (isset($_POST['submit'])) {
 <tbody>
 <?php
 	//connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	//$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	//set up my query
-	$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
+	//$query = "SELECT parentCompany FROM Company ORDER BY parentCompany;";
 	
 	//run the query
-	$result = queryDB($query, $db);
+	//$result = queryDB($query, $db);
 	
-	while($row = nextTuple($result)) {
-		echo "\n <tr>";
-		echo "<td>" . $row['parentCompany'] . "</td>";
-		echo "</tr>";
-	}
+	//while($row = nextTuple($result)) {
+	//	echo "\n <tr>";
+	//	echo "<td>" . $row['parentCompany'] . "</td>";
+	//	echo "</tr>";
+	//}
 ?>
 
 <?php
 	//connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	//$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	//set up my query
-	$query = "SELECT jobTitle FROM Job ORDER BY jobTitle;";
+	//$query = "SELECT jobTitle FROM Job ORDER BY jobTitle;";
 	
 	//run the query
-	$result = queryDB($query, $db);
+	//$result = queryDB($query, $db);
 	
-	while($row = nextTuple($result)) {
-		echo "\n <tr>";
-		echo "<td>" . $row['jobTitle'] . "</td>";
-		echo "</tr>";
-	}
+	//while($row = nextTuple($result)) {
+	//	echo "\n <tr>";
+	//	echo "<td>" . $row['jobTitle'] . "</td>";
+	//	echo "</tr>";
+	//}
 ?>
 
 </tbody>
