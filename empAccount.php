@@ -19,6 +19,7 @@ if($query->num_rows != 0) {
 		$address = $rows['address'];
 
 		echo "<p>Name: $name <br> email: $email</p>"
+		header("Location: empAccount.php");
 	}
 //Display the results
 } else {
