@@ -1,7 +1,39 @@
 <?php
 	include_once('config.php');
 	include_once('dbutils.php');
+
+	if (session_start()) {
+	  $email = $_SESSION['email'];
+	}
 ?>
+
+<?php
+// check if email already in database
+	// connect to database
+	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+	// set up my query
+	$query = "SELECT Job.jobID, Job.jobTitle, Job.companyID, Company.companyID, Company.parentCompany FROM Job INNER JOIN Company ON Company.companyID = Job.companyID WHERE Job.email = '$email';";
+	//print($query);
+	
+	// run the query
+	$result = queryDB($query, $db);
+	
+	 //check if the companies are there
+	if (nTuples($result) <= 0) {
+	   print("There are no jobs in the databse.");
+	}
+	
+	// options for club teams
+	$jobCompanyOptions= "";
+	
+	// go through all club teams and put together pull down menu
+	while ($row = nextTuple($result)) {
+		$jobCompanyOptions .= "\t\t\t";
+		$jobCompanyOptions .= "<option value='";
+		$jobCompanyOptions .= $row['jobID'] . "'>" . $row['jobTitle'] . " (" . $row['parentCompany'] . ")</option>\n";
+	}
+?>
+
 <html>
 <head>
 	<title>
@@ -45,50 +77,41 @@ if (isset($_POST['submit'])) {
 	$startdate = $_POST['startdate'];
 	$enddate = $_POST['enddate'];
 	$paydate = $_POST['paydate'];
+	$jobID = $_POST['jobID'];
 	
 	// check to make sure we have an email
 	if (!$paycheck) {
 		punt("Please enter the amount on your paycheck");
 	}
 	if (!$startdate) {
-		punt("Please enter a start date");
+		punt("Please enter a start date (YYYY-MM-DD)");
 	}
 	if (!$enddate) {
-		punt("Please enter a end date");
+		punt("Please enter a end date (YYYY-MM-DD)");
 	}
 		
 	if (!$paydate) {
-		punt("Please enter the date paycheck recieved ");
+		punt("Please enter the date paycheck recieved (YYYY-MM-DD)");
 	}
 	// check if email already in database
 	// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
-	$query = "SELECT email FROM Employee WHERE email='$email';";
+	$query = "INSERT INTO Wage(payCheck, startDate, endDate, payDate, jobID) VALUES ('$paycheck', '$startdate', '$enddate', '$paydate', '$jobID');";
 	
 	// run the query
 	$result = queryDB($query, $db);
-	// check if the email is there
-	if (nTuples($result) > 0) {
-	   punt("The email address $email is already in the database");
-	}
 	
-	// generate hashed password using the system-provided salt.
-	$hashedPass = crypt($password1);
-	
-	// set up my query
-	$query = "INSERT INTO Employee(email, hashedPass) VALUES ('$email', '$hashedPass');";
-	print($query);
-	
-	// run the query
-	$result = queryDB($query, $db);
 	
 	// tell users that we added the player to the database
-	echo "<div class='panel panel-default'>\n";
-	echo "\t<div class='panel-body'>\n";
-	echo "\t\tThe user " . $email . " was added to the database\n";
-	echo "</div></div>\n";
+	//echo "<div class='panel panel-default'>\n";
+	//echo "\t<div class='panel-body'>\n";
+	//echo "\t\tThe Paycheck for amount " . $paycheck . " was added to the database\n";
+	//echo "</div></div>\n";
+
+	// takes the user where they should go after successful submit!
+	header('Location: paystubs.php');
 }
 ?>
 
@@ -98,22 +121,30 @@ if (isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <div class="form-group">
+	<label for="jobID">Club Team</label>
+	<select class="form-control" name="jobID">
+		<option selected disabled></option>
+<?php echo $jobCompanyOptions; ?>
+	</select>
+</div>
+
+<div class="form-group">
 	<label for="paycheck">Please enter the amount on the paycheck</label>
 	<input type="paycheck" class="form-control" name="paycheck"/>
 </div>
 
 <div class="form-group">
-	<label for="startdate">Please enter the start date</label>
+	<label for="startdate">Please enter the start date YYYY-MM-DD</label>
 	<input type="startdate" class="form-control" name="startdate"/>
 </div>
 
 <div class="form-group">
-	<label for="enddate">Please enter the end date</label>
+	<label for="enddate">Please enter the end date YYYY-MM-DD</label>
 	<input type="enddate" class="form-control" name="enddate"/>
 </div>
 
 <div class="form-group">
-	<label for="paydate">Please enter the date paycheck recieved</label>
+	<label for="paydate">Please enter the date paycheck recieved YYYY-MM-DD</label>
 	<input type="paydate" class="form-control" name="paydate"/>
 </div>
 
@@ -134,22 +165,7 @@ if (isset($_POST['submit'])) {
 </thead>
 
 <tbody>
-<?php
-	// connect to database
-	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
-	
-	// set up my query
-	$query = "SELECT email FROM Employee ORDER BY email;";
-	
-	// run the query
-	$result = queryDB($query, $db);
-	
-	while($row = nextTuple($result)) {
-		echo "\n <tr>";
-		echo "<td>" . $row['email'] . "</td>";
-		echo "</tr>";
-	}
-?>
+
 
 </tbody>
 </table>
