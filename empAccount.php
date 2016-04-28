@@ -24,5 +24,8 @@ if($query->num_rows != 0) {
 } else {
 	echo "N/A"
 }
-header("Location: empAccount.php");
+53       <div class="row"> 
+54         <div class="col-md-2 text-center pull-right"><a class="btn btn-danger" href="hoursInput.php" role="button">Home</a></div> 
+55     </div> 
+
 ?>
