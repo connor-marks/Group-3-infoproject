@@ -108,17 +108,17 @@
 
   <?php
           //connect to database
-          $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+          //$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
   
           //set up my query
-          $query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany";
+          //$query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany";
   
           //run the query
-          $result = queryDB($query, $db);
+          //$result = queryDB($query, $db);
   
-          while($row = nextTuple($result)) {
-          echo "<td>" . $row['parentCompany'] . "</br>";
-          }
+          //while($row = nextTuple($result)) {
+          //echo "<td>" . $row['parentCompany'] . "</br>";
+          //}
   ?>
       
    
