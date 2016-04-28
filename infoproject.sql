@@ -19,18 +19,18 @@ CREATE TABLE Company(
 	companyID INT NOT NULL AUTO_INCREMENT,
 	parentCompany VARCHAR(100) NULL,
 	address VARCHAR(100) NOT NULL,
-	PRIMARY KEY(companyID)
+	PRIMARY KEY (companyID)
 );
 
 CREATE TABLE Job(
 	jobID INT NOT NULL AUTO_INCREMENT,
 	jobTitle VARCHAR(100) NOT NULL,
 	hourlyPay INT NOT NULL,
-    	email VARCHAR(45) UNIQUE NOT NULL, 
-    	companyID INT NOT NULL,
-	PRIMARY KEY(jobID),
-	FOREIGN KEY(email) REFERENCES Employee(email),
-	FOREIGN KEY(companyID) REFERENCES Company(companyID)
+    email VARCHAR(45) NOT NULL, 
+    companyID INT NOT NULL,
+	PRIMARY KEY (jobID),
+	FOREIGN KEY (email) REFERENCES Employee (email),
+	FOREIGN KEY (companyID) REFERENCES Company (companyID)
 	
 );
 CREATE TABLE Wage(

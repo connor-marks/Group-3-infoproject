@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+  include_once('config.php');
+  include_once('dbutils.php');
+  
+  if (session_start()) {
+    $email = $_SESSION['email'];
+  }
+?>
+
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -44,8 +53,43 @@
         </div>
       <div class="panel-body">
         <div class="row">
-        <div class="col-sm-8 col-xs-6">Company: Target</div><div class="col-sm-4 text-left col-xs-6">Wage: $15</div>
+        <div class="col-sm-8 col-xs-6 text-center">
+<?php
+          //connect to database
+          $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+  
+          //set up my query
+          $query = "SELECT Company.parentCompany, Company.companyID, Job.companyID FROM Company INNER JOIN Job ON Company.companyID = Job.companyID;";
+  
+          //run the query
+          $result = queryDB($query, $db);
+  
+          while($row = nextTuple($result)) {
+          echo "Company: ";
+          echo "<td class='text-center'>" . $row['parentCompany'] . "</br>";
+          }
+  ?>
         </div>
+        <div class="col-sm-4 text-left col-xs-6">
+<?php
+          //connect to database
+          $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+  
+          //set up my query
+          $query = "SELECT hourlyPay, email FROM Job WHERE email = '$email';";
+  
+          //run the query
+          $result = queryDB($query, $db);
+  
+          while($row = nextTuple($result)) {
+          echo "Wage: ";
+          echo "<td>" . $row['hourlyPay'] . "</br>";
+          }
+  ?>
+        </div>
+        </div>
+
+        <!--
         <div class="row">
         <div class="col-sm-8 col-xs-6">Company: Walmart</div><div class="col-sm-4 text-left col-xs-6">Wage: $10</div>
         </div>
@@ -54,13 +98,28 @@
         </div>
         <div class="row">
         <div class="col-sm-8 col-xs-6">Company: Walgreens</div><div class="col-sm-4 text-left col-xs-6">Wage: $20</div>
-        </div>
+        </div> -->
       </div>
     </div>
           
       </div>
     </div>
   </div>
+
+  <?php
+          //connect to database
+          $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+  
+          //set up my query
+          $query = "SELECT companyID, parentCompany FROM Company ORDER BY parentCompany";
+  
+          //run the query
+          $result = queryDB($query, $db);
+  
+          while($row = nextTuple($result)) {
+          echo "<td>" . $row['parentCompany'] . "</br>";
+          }
+  ?>
       
    
 <!-- Latest compiled and minified JavaScript -->
