@@ -39,8 +39,14 @@ if (isset($_POST['submit'])) {
 	
 	
 	// check to make sure we have an email
-	if ($email == 'nonprofit@gmail.com' && $hashedPass == 'nfppassword'
-		header("Location: nfplogin.php");
+	if (!$email) {
+		header("Location: login.php");
+	}
+	
+	if (!$password) {
+		header("Location: login.php");
+	}
+
 
 	// check if user is in the database
 		// connect to database
