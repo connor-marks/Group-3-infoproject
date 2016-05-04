@@ -39,13 +39,9 @@ if (isset($_POST['submit'])) {
 	
 	
 	// check to make sure we have an email
-	if (!$email) {
+	if ($email == 'nonprofit@gmail.com' && $hashedPass == 'nfppassword'
 		header("Location: nfplogin.php");
-	}
-	
-	if (!$password) {
-		header("Location: nfplogin.php");
-	}
+
 	// check if user is in the database
 		// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
@@ -68,7 +64,7 @@ if (isset($_POST['submit'])) {
 			
 			
 		// Where do you really want to go here?
-		header('Location: nfpdashbroad.php');
+		header('Location: dashboard.html');
 	       } else {
 	        	punt("Unable to create session");
 	}
