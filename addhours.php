@@ -45,6 +45,9 @@
 	<script>
 		$(function() {
 			$( "#startDatepicker" ).datepicker();
+			$( ".selector" ).datepicker({
+  			dateFormat: "yyyy-mm-dd"
+		});
 		});
 		$(function() {
 			$( "#endDatepicker" ).datepicker();
