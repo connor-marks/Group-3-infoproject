@@ -45,7 +45,7 @@
             <h3 class="panel-title">User Account Page</h3>
         </div>
       <div class="panel-body">
-        <a class="btn btn-danger" style="margin-bottom: 10px;" href="editaccount.php" role="button">Edit Info</a>
+        <a class="btn btn-danger" style="margin-bottom: 10px;" href="empAccount.php" role="button">Edit Info</a>
         
           <div class="panel panel-default text-center">
         <div class="panel-heading">
