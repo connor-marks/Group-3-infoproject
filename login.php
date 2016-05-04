@@ -6,11 +6,15 @@
 <html>
 <head>
 	<title>
-		<?php echo "Login to " . $Title; ?>
+		<?php echo "Sign up " . $Title; ?>
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
-	
+	<link rel="stylesheet" href="stylesheet.css">
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -75,15 +79,15 @@ if (isset($_POST['submit'])) {
 		// Where do you really want to go here?
 		header('Location: account.php');
 	       } else {
-	        	punt("Unable to create session");
+	        	punt("<font color='white'>Unable to create session</font>");
 	}
 		} else {
 			// Password is not correct
 			print($password . "<br>" . crypt($password, $row['hashedPass']) . "<br>" . $row['hashedPass'] . "<br>");
-			punt('The password you entered is incorrect');
+			punt("<font color='white'>The password you entered is incorrect</font>");
 		}
 	} else {
-		punt("The email '$email' is not in our database");
+		punt("<font color='white'>The email '$email' is not in our database</font>");
 	}	
 }
 
@@ -96,7 +100,7 @@ if (isset($_POST['submit'])) {
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Login to " . $Title; ?></h1>
+	<h1><?php echo "<font color='white'>Login to </font>" . $Title; ?></h1>
 </div>
 </div>
 </div>
@@ -113,12 +117,12 @@ if (isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <div class="form-group">
-	<label for="email">Email</label>
+	<label for="email"><font color='white'>Email</font></label>
 	<input type="email" class="form-control" name="email"/>
 </div>
 
 <div class="form-group">
-	<label for="password">Password</label>
+	<label for="password"><font color='white'>Password</font></label>
 	<input type="password" class="form-control" name="password"/>
 </div>
 
