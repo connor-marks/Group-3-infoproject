@@ -44,13 +44,10 @@
 	
 	<script>
 		$(function() {
-			$( "#startDatepicker" ).datepicker();
-			$( ".selector" ).datepicker({
-  			dateFormat: "yyyy-mm-dd"
-		});
+			$( "#startDatepicker" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
 		});
 		$(function() {
-			$( "#endDatepicker" ).datepicker();
+			$( "#endDatepicker" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
 		});
 	</script>
 	
