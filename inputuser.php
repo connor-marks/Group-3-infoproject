@@ -1,13 +1,11 @@
 <?php
-$colour = $_GET["colour"];
-?>
-body {
-    background-color:red<?php echo $colour ?>;
-    
-}
+
 	include_once('config.php');
 	include_once('dbutils.php');
+
 ?>
+
+
 <html>
 <head>
 	<title>
@@ -15,7 +13,11 @@ body {
 	</title>
 
 	<!-- Following three lines are necessary for running Bootstrap -->
-	
+	<link rel="stylesheet" href="stylesheet.css">
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -26,14 +28,16 @@ body {
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>	
 </head>
 
-<body>
+<body >
+
+
 <div class="container">
 
 <!-- Page header -->
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "Create Account: " . $Title; ?></h1>
+	<h1><?php echo "<font color='white'>Create Account: </font>" . $Title; ?></h1>
 </div>
 </div>
 </div>
@@ -120,32 +124,32 @@ if (isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <div class="form-group">
-	<label for="email">Email</label>
+	<label for="email"><font color='white'>Email</font></label>
 	<input type="email" class="form-control" name="email"/>
 </div>
 
 <div class="form-group">
-	<label for="password1">Password</label>
+	<label for="password1"><font color='white'>Password</font></label>
 	<input type="password" class="form-control" name="password1"/>
 </div>
 
 <div class="form-group">
-	<label for="password2">Please enter password again</label>
+	<label for="password2"><font color='white'>Please enter password again</font></label>
 	<input type="password" class="form-control" name="password2"/>
 </div>
 
 <div class="form-group">
-	<label for="name">Please enter full name</label>
+	<label for="name"><font color='white'>Please enter full name</font></label>
 	<input type="name" class="form-control" name="name"/>
 </div>
 
 <div class="form-group">
-	<label for="phoneNumber">Please enter your phone number</label>
+	<label for="phoneNumber"><font color='white'>Please enter your phone number</font></label>
 	<input type="phoneNumber" class="form-control" name="phoneNumber"/>
 </div>
 
 <div class="form-group">
-	<label for="address">Please enter your home address</label>
+	<label for="address"><font color='white'>Please enter your home address</font></label>
 	<input type="address" class="form-control" name="address"/>
 </div>
 
