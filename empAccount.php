@@ -1,4 +1,9 @@
 <?php
+$colour = $_GET["red"];
+?>
+body {
+    background-color: #<?php echo $colour ?>;
+}
 include_once("dbutils.php");
     include_once("config.php");
 
