@@ -2,7 +2,7 @@
 $colour = $_GET["colour"];
 ?>
 body {
-    background-color:red;<?php echo $colour ?>;
+    background-color:red<?php echo $colour ?>;
     
 }
 	include_once('config.php');
