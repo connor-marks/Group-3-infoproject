@@ -26,5 +26,9 @@
                     </tr>';
         $tableRows .= $tableRow;
     }
-    echo $tableRows;
+	if ($tableRows) {
+	    echo $tableRows;
+	} else {
+		echo "error";
+	}
 ?>

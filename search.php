@@ -34,7 +34,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     
     <script>
-        function search() {
+        function searchCompanies() {
             var searchVal = $('#search-input').val();
             if (searchVal) {
                 $.ajax({
@@ -75,12 +75,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
-                    <a href="user.html">
-                        <i class="pe-7s-user"></i>
-                        <p>NonProfit Profile</p>
-                    </a>
-                </li>
+                
                 <li class="active">
                     <a href="table.html">
                         <i class="pe-7s-note2"></i>
@@ -93,12 +88,7 @@
                         <p>Maps</p>
                     </a>
                 </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
+
 				
             </ul>
     	</div>
@@ -183,8 +173,8 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Search Employees of a Company</h4>
-                                <input id="search-input" type="text" name="search">
-                                <a onclick="search();"><i class="fa fa-search"></i></a>
+                                <input id="search-input" type="text" name="search" placeholder="Company Name">
+                                <a onclick="searchCompanies();"><i class="fa fa-search"></i></a>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table id="myTable" class="table table-hover table-striped">
@@ -245,20 +235,11 @@
                                 Company
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
+                        
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                    &copy; 2016 
                 </p>
             </div>
         </footer>
