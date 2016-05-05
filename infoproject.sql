@@ -19,17 +19,18 @@ CREATE TABLE Company(
 	companyID INT NOT NULL AUTO_INCREMENT,
 	parentCompany VARCHAR(100) NULL,
 	address VARCHAR(100) NOT NULL,
-	PRIMARY KEY(companyID)
+	PRIMARY KEY (companyID)
 );
 
 CREATE TABLE Job(
 	jobID INT NOT NULL AUTO_INCREMENT,
 	jobTitle VARCHAR(100) NOT NULL,
-    email VARCHAR(45) UNIQUE NOT NULL, 
+	hourlyPay INT NOT NULL,
+    email VARCHAR(45) NOT NULL, 
     companyID INT NOT NULL,
-	PRIMARY KEY(jobID),
-	FOREIGN KEY(email) REFERENCES Employee(email),
-	FOREIGN KEY(companyID) REFERENCES Company(companyID)
+	PRIMARY KEY (jobID),
+	FOREIGN KEY (email) REFERENCES Employee (email) ON DELETE CASCADE,
+	FOREIGN KEY (companyID) REFERENCES Company (companyID)
 	
 );
 CREATE TABLE Wage(
@@ -40,18 +41,17 @@ CREATE TABLE Wage(
 	payDate DATE NOT NULL,
     jobID INT NOT NULL,
 	PRIMARY KEY(wageID),
-	FOREIGN KEY(jobID) REFERENCES Job(jobID)
+	FOREIGN KEY(jobID) REFERENCES Job(jobID) ON DELETE CASCADE
 );
 
 CREATE TABLE Hours(
 	hourID INT NOT NULL AUTO_INCREMENT,
-	hourlyPay INT NOT NULL,
 	hoursWorked INT NOT NULL,
 	startDate DATE NOT NULL,
 	endDate DATE NOT NULL,
     jobID INT NOT NULL,
 	PRIMARY KEY(hourID),
-	FOREIGN KEY(jobID) REFERENCES Job(jobID)
+	FOREIGN KEY(jobID) REFERENCES Job(jobID) ON DELETE CASCADE
 );
 
 
@@ -63,7 +63,19 @@ CREATE TABLE NonProfit(
 );
 
 CREATE TABLE NonProfitAccount(
+	email VARCHAR(45) UNIQUE NOT NULL,
 	userID INT NOT NULL AUTO_INCREMENT,
-	nonProfitPassword VARCHAR(30) NOT NULL,
+	hashedPass VARCHAR(256) NOT NULL,
 	PRIMARY KEY (userID)
 );
+
+INSERT INTO Company (parentCompany, address) VALUES ('Walmart', '123 Main st');
+INSERT INTO Company (parentCompany, address) VALUES ('Home Depot', '123 South st');
+INSERT INTO Company (parentCompany, address) VALUES ('Walgreens', '123 North st');
+INSERT INTO Company (parentCompany, address) VALUES ('Target', '123 West st');
+INSERT INTO Company (parentCompany, address) VALUES ('Bo James', '123 East st');
+INSERT INTO Company (parentCompany, address) VALUES ('Kum and Go', '123 Burlington st');
+INSERT INTO NonProfitAccount(email, hashedPass) VALUES ('john-doe@uiowa.edu','12345');
+
+
+
