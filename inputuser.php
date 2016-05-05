@@ -37,7 +37,7 @@
 <div class="row">
 <div class="col-xs-12">
 <div class="page-header">
-	<h1><?php echo "<font color='white'>Create Account: </font>" . $Title; ?></h1>
+	<h1><?php echo "<font color='white'>Create Account: </font>"; ?></h1>
 </div>
 </div>
 </div>
