@@ -136,10 +136,10 @@ if (isset($_POST['submit'])) {
 	</select>
 </div>
 
-<div class="form-group">
+<!-- <div class="form-group">
 	<label for="address">Company Address:</label>
 	<input type="text" class="form-control" name="address"/>
-</div>
+</div> -->
 
 <div class="form-group">
 	<label for="hourlyPay">Hourly Wage:</label>
@@ -147,6 +147,7 @@ if (isset($_POST['submit'])) {
 </div>
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
+<a class="btn btn-danger" style="" href="jobs.php" role="button">Cancel</a>
 
 </form>
 

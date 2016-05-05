@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <?php
   if (session_start()) {
-	  $email = $_SESSION['email'];
+    $email = $_SESSION['email'];
       $pass = $_SESSION['password'];
       $name = $_SESSION['name'];
-	  $address = $_SESSION['address'];
-	  $phoneNumber = $_SESSION['phoneNumber'];
+    $address = $_SESSION['address'];
+    $phoneNumber = $_SESSION['phoneNumber'];
   }
 ?>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Account Page</title>
+    <title>Admin Account Page</title>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -27,10 +27,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
       <ul class="nav navbar-nav col-sm-12">
-        <li class="col-sm-3 text-center col-xs-3"><a href="hours.php">Hours</a></li>
-        <li class="col-sm-3 text-center col-xs-3"><a href="jobs.php">Jobs</a></li>
-        <li class="col-sm-3 text-center col-xs-3"><a href="paystubs.php">Pay Stubs</a></li>
-        <li class="col-sm-3 text-center col-xs-3"><a href="account.php"><span class="glyphicon glyphicon-user" style="color:#fff;"></span></a></li>
+        <li class="col-sm-3 text-center col-xs-3"></li>
+        <li class="col-sm-3 text-center col-xs-3"><a href="admin.php">Users</a></li>
+        <li class="col-sm-3 text-center col-xs-3"><a href="adminAccount.php"><span class="glyphicon glyphicon-user" style="color:grey;"></span></a></li>
+        <li class="col-sm-3 text-center col-xs-3"></li>
+        
       </ul>
       
     </div><!-- /.navbar-collapse -->

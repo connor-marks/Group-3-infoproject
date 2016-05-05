@@ -38,6 +38,45 @@
 </nav>
 </header>
 
+<?php
+    //echo "start";
+
+  if (isset($_POST['submit'])) {
+    //echo "submitted";
+    $userList = $_POST['user'];
+
+    $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+
+    if(empty($userList)) 
+      {
+        echo("You didn't select any users.");
+      } 
+    else
+      {
+        $N = count($userList);
+ 
+        //echo("You selected $N User(s): ");
+
+      for($i=0; $i < $N; $i++)
+        {
+          //echo($userList[$i] . " ");
+
+          $query = "DELETE FROM Hours
+                    WHERE Hours.hourID = '$userList[$i]';";
+          $result = queryDB($query, $db);
+
+          echo "<div class='panel panel-default'>\n";
+          echo "\t<div class='panel-body'>\n";
+          echo "\t\tThe hours were deleted from the database\n";
+          echo "</div></div>\n";
+
+          //echo("You Deleted $N User(s): ");
+          //echo($userList[$i] . ", ");
+        }
+      }
+    }
+    ?>
+
       
   <div class="container">
     <div class="panel panel-default text-center">
@@ -45,7 +84,7 @@
             <h3 class="panel-title">User Hours</h3>
         </div>
       <div class="panel-body">
-        <a class="btn btn-danger" style="margin-bottom: 10px;" href="addhours.php" role="button">Add Hours</a>
+        <a class="btn btn-success" style="margin-bottom: 10px;" href="addhours.php" role="button">Add Hours</a>
         
           <div class="panel panel-default text-center">
         <div class="panel-heading">
@@ -53,18 +92,21 @@
         </div>
       <div class="panel-body">
         <div class="row text-center">
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
           <?php
           //connect to database
           $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
   
           //set up my query
-          $query = "SELECT Hours.hoursWorked, Hours.startDate, Hours.endDate, Hours.jobID, Job.jobTitle, Job.jobID, Job.hourlyPay, Job.email FROM Hours INNER JOIN Job ON Hours.jobID = Job.jobID WHERE Job.email = '$email';";
+          $query = "SELECT Hours.hoursWorked, Hours.startDate, Hours.endDate, Hours.jobID, Hours.hourID, Job.jobTitle, Job.jobID, Job.hourlyPay, Job.email FROM Hours INNER JOIN Job ON Hours.jobID = Job.jobID WHERE Job.email = '$email';";
   
           //run the query
           $result = queryDB($query, $db);
-  
+          
+
           while($row = nextTuple($result)) {
-          echo "Paid: <b>$";
+          echo "<td><input type='checkbox' name='user[]' value=" . $row['hourID'] . "></td>";
+          echo "Exp Pay: <b>$";
           echo ($row['hourlyPay'] * $row['hoursWorked']);
           echo "</b> for <b>" . $row['hoursWorked'] . "</b> hours worked from <b>" . $row['startDate'] . "</b> to <b>" . $row['endDate'] . "</b>  for job: <b>" . $row['jobTitle'] . "</b></br>";
           }
@@ -72,7 +114,8 @@
         </div>
       </div>
     </div>
-          
+        <button type="submit" class="btn btn-danger delete" name="submit">Delete Hours</button>
+          </form>
       </div>
     </div>
   </div>

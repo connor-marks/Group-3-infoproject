@@ -28,6 +28,10 @@
       padding: 0 0 2% 5%;
     }
 
+    .delete {
+      margin: 0 0 2% 0;
+    }
+
   </style>    
 
   </head>
@@ -40,10 +44,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div>
       <ul class="nav navbar-nav col-sm-12">
-        <li class="col-sm-3 text-center col-xs-3"><a href="hours.php">Hours</a></li>
-        <li class="col-sm-3 text-center col-xs-3"><a href="jobs.php">Jobs</a></li>
-        <li class="col-sm-3 text-center col-xs-3"><a href="paystubs.php">Pay Stubs</a></li>
-        <li class="col-sm-3 text-center col-xs-3"><a href="account.php"><span class="glyphicon glyphicon-user" style="color:grey;"></span></a></li>
+        <li class="col-sm-3 text-center col-xs-3"></li>
+        <li class="col-sm-3 text-center col-xs-3"><a href="admin.php">Users</a></li>
+        <li class="col-sm-3 text-center col-xs-3"><a href="adminAccount.php"><span class="glyphicon glyphicon-user" style="color:grey;"></span></a></li>
+        <li class="col-sm-3 text-center col-xs-3"></li>
+        
       </ul>
       
     </div><!-- /.navbar-collapse -->
@@ -102,7 +107,7 @@
         </div>
       <div class="panel-body">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <button type="submit" class="btn btn-danger" name="submit">Delete User(s)</button>
+        <button type="submit" class="btn btn-danger delete" name="submit">Delete User(s)</button>
 
         
           <div class="panel panel-default text-center">

@@ -151,6 +151,7 @@ if (isset($_POST['submit'])) {
 
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
+<a class="btn btn-danger" style="" href="hours.php" role="button">Cancel</a>
 
 </form>
 

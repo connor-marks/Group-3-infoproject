@@ -36,6 +36,25 @@
 
 <html>
 <head>
+	<!-- Following three lines are necessary for running Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+	<script>
+		$(function() {
+			$( "#startDatepicker" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
+		});
+		$(function() {
+			$( "#endDatepicker" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
+		});
+		$(function() {
+			$( "#recDatepicker" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
+		});
+	</script>
+
+
 	<title>
 		<?php echo "Add Pay Stub " . $Title; ?>
 	</title>
@@ -121,7 +140,7 @@ if (isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <div class="form-group">
-	<label for="jobID">Job</label>
+	<label for="jobID">Choose Job</label>
 	<select class="form-control" name="jobID">
 		<option selected disabled></option>
 <?php echo $jobCompanyOptions; ?>
@@ -134,22 +153,20 @@ if (isset($_POST['submit'])) {
 </div>
 
 <div class="form-group">
-	<label for="startdate">Please enter the start date YYYY-MM-DD</label>
-	<input type="startdate" class="form-control" name="startdate"/>
+	<label for="startdate">Start Date</label>
+	<input name="startdate" type="text" id="startDatepicker"><br>
+	
+	<label for="enddate">End Date</label>
+	<input name="enddate" type="text" id="endDatepicker">
 </div>
 
 <div class="form-group">
-	<label for="enddate">Please enter the end date YYYY-MM-DD</label>
-	<input type="enddate" class="form-control" name="enddate"/>
+	<label for="paydate">Date Received</label>
+	<input name="paydate" type="text" id="recDatepicker">
 </div>
-
-<div class="form-group">
-	<label for="paydate">Please enter the date paycheck recieved YYYY-MM-DD</label>
-	<input type="paydate" class="form-control" name="paydate"/>
-</div>
-
 
 <button type="submit" class="btn btn-default" name="submit">Add</button>
+<a class="btn btn-danger" style="" href="paystubs.php" role="button">Cancel</a>
 
 </form>
 

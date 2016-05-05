@@ -37,6 +37,45 @@
 </nav>
 </header>
 
+<?php
+    //echo "start";
+
+  if (isset($_POST['submit'])) {
+    //echo "submitted";
+    $userList = $_POST['user'];
+
+    $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
+
+    if(empty($userList)) 
+      {
+        echo("You didn't select any users.");
+      } 
+    else
+      {
+        $N = count($userList);
+ 
+        //echo("You selected $N User(s): ");
+
+      for($i=0; $i < $N; $i++)
+        {
+          //echo($userList[$i] . " ");
+
+          $query = "DELETE FROM Wage
+                    WHERE Wage.wageID = '$userList[$i]';";
+          $result = queryDB($query, $db);
+
+          echo "<div class='panel panel-default'>\n";
+          echo "\t<div class='panel-body'>\n";
+          echo "\t\tThe Paychecks(s) were deleted from the database\n";
+          echo "</div></div>\n";
+
+          //echo("You Deleted $N User(s): ");
+          //echo($userList[$i] . ", ");
+        }
+      }
+    }
+    ?>
+
       
   <div class="container">
     <div class="panel panel-default text-center">
@@ -44,7 +83,7 @@
             <h3 class="panel-title">User Pay Stubs</h3>
         </div>
       <div class="panel-body">
-        <a class="btn btn-danger" style="margin-bottom: 10px;" href="addhpaystub.php" role="button">Add Paystub</a>
+        <a class="btn btn-success" style="margin-bottom: 10px;" href="addhpaystub.php" role="button">Add Paystub</a>
         
           <div class="panel panel-default text-center">
         <div class="panel-heading">
@@ -52,17 +91,19 @@
         </div>
       <div class="panel-body">
         <div class="row text-center">
-          <?php
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <?php
           //connect to database
           $db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
   
           //set up my query
-          $query = "SELECT Wage.payCheck, Wage.startDate, Wage.endDate, Wage.payDate, Wage.jobID, Job.jobTitle, Job.jobID, Job.email FROM Wage INNER JOIN Job ON Wage.jobID = Job.jobID WHERE Job.email = '$email';";
+          $query = "SELECT Wage.payCheck, Wage.startDate, Wage.endDate, Wage.payDate, Wage.wageID, Wage.jobID, Job.jobTitle, Job.jobID, Job.email FROM Wage INNER JOIN Job ON Wage.jobID = Job.jobID WHERE Job.email = '$email';";
   
           //run the query
           $result = queryDB($query, $db);
   
           while($row = nextTuple($result)) {
+          echo "<td><input type='checkbox' name='user[]' value=" . $row['wageID'] . "></td>";
           echo "Paycheck Amount: <b>$";
           echo $row['payCheck'];
           echo "</b> for dates: <b>" . $row['startDate'] . "</b> to <b>" . $row['endDate'] . "</b> recieved on <b>" . $row[payDate] . "</b> for job: <b>" . $row['jobTitle'] . "</b></br>";
@@ -71,8 +112,10 @@
         </div>
       </div>
     </div>
-          
+          <button type="submit" class="btn btn-danger delete" name="submit">Delete Paycheck(s)</button>
+          </form>
       </div>
+      
     </div>
   </div>
       
