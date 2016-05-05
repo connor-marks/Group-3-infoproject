@@ -37,23 +37,22 @@ if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	
 	// check to make sure we have an email
 	if (!$email) {
-		header("Location: login.php");
+		header("Location: nfplogin.php");
 	}
 	
 	if (!$password) {
-		header("Location: login.php");
+		header("Location: nfplogin.php");
 	}
 
-
+	
 	// check if user is in the database
 		// connect to database
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
-	$query = "SELECT hashedPass FROM Employee WHERE email='$email';";
+	$query = "SELECT hashedPass FROM  NonProfitAccount WHERE email='$email';";
 	//print($query);
 	
 	// run the query
