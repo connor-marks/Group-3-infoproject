@@ -52,7 +52,8 @@ if (isset($_POST['submit'])) {
 	$db = connectDB($DBHost,$DBUser,$DBPassword,$DBName);
 	
 	// set up my query
-	$query = "SELECT hashedPass FROM  NonProfitAccount WHERE email='$email';";
+	$query = "SELECT hashedPass FROM NonProfitAccount WHERE email='$email';";
+
 	//print($query);
 	
 	// run the query
@@ -75,7 +76,7 @@ if (isset($_POST['submit'])) {
 	}
 		} else {
 			// Password is not correct
-			print($password . "<br>" . crypt($password, $row['hashedPass']) . "<br>" . $row['hashedPass'] . "<br>");
+			print("password:".$password . "<br>crypt:" . crypt($password, $row['hashedPass']) . "<br>DBPass:" . $row['hashedPass'] . "<br>");
 			punt('The password you entered is incorrect');
 		}
 	} else {
