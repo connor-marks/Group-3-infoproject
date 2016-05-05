@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
 
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 <div class="form-group">
-	<label for="jobID">Club Team</label>
+	<label for="jobID">Job</label>
 	<select class="form-control" name="jobID">
 		<option selected disabled></option>
 <?php echo $jobCompanyOptions; ?>
