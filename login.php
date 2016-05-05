@@ -76,8 +76,14 @@ if (isset($_POST['submit'])) {
 			$_SESSION['phoneNumber'] = $row['phoneNumber'];
 			$_SESSION['address'] = $row['address'];
 			
-		// Where do you really want to go here?
-		header('Location: account.php');
+		if ($email == 'admin@wage.com') {
+					header('Location: admin.php');
+				}
+			else
+				{
+					// Where do you really want to go here?
+					header('Location: account.php');
+				}
 	       } else {
 	        	punt("<font color='white'>Unable to create session</font>");
 	}
